@@ -9,3 +9,8 @@ demo:
 
 docker_build:
 	docker build -t $(USERNAME)/$(APPNAME):$(VERSION) -f ./Dockerfile .
+
+docker_run:
+	@echo "hello" $(VERSION)
+	@echo "hello" $(POSTGRES_DSN)
+	docker run --name $(APPNAME) --net=host -e API_DEBUG='false' -e POSTGRES_DSN='host=localhost user=postgres password=postgres dbname=rozetka port=5432 sslmode=disable' --rm $(USERNAME)/$(APPNAME):$(VERSION)

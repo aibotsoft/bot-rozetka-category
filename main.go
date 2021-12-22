@@ -30,6 +30,7 @@ func main() {
 	if err := env.Parse(&cfg); err != nil {
 		fmt.Printf("%+v\n", err)
 	}
+	fmt.Println(cfg)
 	//dsn := "host=localhost user=postgres password=postgres dbname=rozetka port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(cfg.PostgresDSN), &gorm.Config{})
 	if err != nil {
