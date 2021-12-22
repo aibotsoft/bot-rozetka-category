@@ -1,0 +1,12 @@
+apiVersion: v2
+version: 0.0.1
+appVersion: 0.0.1
+name: bot-rozetka-category
+description: Collect category from rozetka
+home: https://github.com/aibotsoft/bot-rozetka-category
+maintainers:
+  - email: aibotsoft@users.noreply.github.com
+    name: aibotsoft
+sources:
+  - https://github.com/aibotsoft/bot-rozetka-category
+kubeVersion: ">=1.19.0-0"

@@ -1,0 +1,16 @@
+api_categories.go
+client.go
+configuration.go
+docs/CategoriesApi.md
+docs/InlineResponse200.md
+docs/InlineResponse200Data.md
+docs/InlineResponse200DataChildren.md
+docs/InlineResponse200DataCurrent.md
+docs/InlineResponse200DataTileConfig.md
+model_inline_response_200.go
+model_inline_response_200_data.go
+model_inline_response_200_data_children.go
+model_inline_response_200_data_current.go
+model_inline_response_200_data_tile_config.go
+response.go
+utils.go

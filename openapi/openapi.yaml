@@ -1,0 +1,182 @@
+---
+openapi: 3.0.3
+info:
+  title: api
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: "https://xl-catalog-api.rozetka.com.ua"
+paths:
+  /v4/categories/getChildren:
+    get:
+      tags:
+        - categories
+      summary: getChildren
+      description: getChildren
+      operationId: getChildren
+      parameters:
+        - name: category_id
+          in: query
+          schema:
+            type: string
+            example: "83850"
+        - name: lang
+          in: query
+          schema:
+            type: string
+            example: ru
+      responses:
+        "200":
+          description: getChildren
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      children:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            allow_index_three_parameters:
+                              type: boolean
+                              example: false
+                            attach:
+                              type: string
+                              example: "https://content1.rozetka.com.ua/goods/top/original/228454121.jpg"
+                            child_id:
+                              type: number
+                              example: 0
+                            count:
+                              type: number
+                              example: 136
+                            count_children:
+                              type: number
+                              example: 0
+                            goods_count:
+                              type: number
+                              example: 136
+                            goods_id:
+                              type: number
+                              example: 330204607
+                            href:
+                              type: string
+                              example: "https://rozetka.com.ua/utsenennye-aksessuary/c101808/"
+                            id:
+                              type: number
+                              example: 101808
+                            is_append_goods:
+                              type: boolean
+                              example: false
+                            is_rozetka_top:
+                              type: boolean
+                              example: true
+                            left_key:
+                              type: number
+                              example: 3397
+                            level:
+                              type: number
+                              example: 2
+                            mpath:
+                              type: string
+                              example: ".83850."
+                            name:
+                              type: string
+                              example: utsenennye-aksessuary
+                            parent_id:
+                              type: number
+                              example: 83850
+                            right_key:
+                              type: number
+                              example: 3398
+                            rz_mpath:
+                              type: string
+                              example: ".83850.101808."
+                            status:
+                              type: string
+                              example: active
+                            title:
+                              type: string
+                              example: Уцененные аксессуары
+                            titles_mode:
+                              type: string
+                              example: inherited
+                      current:
+                        type: object
+                        properties:
+                          allow_index_three_parameters:
+                            type: boolean
+                            example: false
+                          count:
+                            type: number
+                            example: 1793
+                          href:
+                            type: string
+                            example: "https://rozetka.com.ua/rasprodaja/c83850/"
+                          id:
+                            type: number
+                            example: 83850
+                          is_rozetka_top:
+                            type: boolean
+                            example: false
+                          left_key:
+                            type: number
+                            example: 3358
+                          level:
+                            type: number
+                            example: 1
+                          mpath:
+                            type: string
+                            example: "."
+                          name:
+                            type: string
+                            example: rasprodaja
+                          parent_id:
+                            type: number
+                            example: 0
+                          right_key:
+                            type: number
+                            example: 3485
+                          root_id:
+                            type: number
+                            example: 83850
+                          rz_mpath:
+                            type: string
+                            example: ".83850."
+                          status:
+                            type: string
+                            example: active
+                          subdomain:
+                            nullable: true
+                            example: ~
+                          title:
+                            type: string
+                            example: Уцененные товары
+                          titles_mode:
+                            type: string
+                            example: inherited
+                      hasFilter:
+                        type: boolean
+                        example: false
+                      is_need_street_id:
+                        type: boolean
+                        example: false
+                      tile_config:
+                        type: object
+                        properties:
+                          possible_templates:
+                            type: array
+                            items:
+                              type: string
+                              example: default
+                          template:
+                            type: string
+                            example: default
+                          template_view:
+                            type: string
+                            example: default
+tags:
+  - name: categories
