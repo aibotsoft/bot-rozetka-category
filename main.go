@@ -56,10 +56,11 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello World!")
 	})
-	//err := http.ListenAndServe(":8081", nil)
-	//if err != nil {
-	//	panic(err)
-	//}
+	fmt.Println("http://localhost:8080/")
+	err = http.ListenAndServe(":8080", nil)
+	if err != nil {
+		panic(err)
+	}
 }
 func getCategories(client *api.APIClient) ([]Category, error) {
 	resp, _, err := client.CategoriesApi.GetChildren(context.Background()).Lang("ru").CategoryId(rootCategoryID).Execute()
