@@ -21,8 +21,8 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
-      - name: Test
-        run: go test -race -coverprofile=coverage.txt -covermode=atomic
+#      - name: Test
+#        run: go test -race -coverprofile=coverage.txt -covermode=atomic
       - name: Prepare
         id: prep
         run: |
