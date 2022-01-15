@@ -14,46 +14,46 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse200DataCurrent struct for InlineResponse200DataCurrent
-type InlineResponse200DataCurrent struct {
-	AllowIndexThreeParameters *bool       `json:"allow_index_three_parameters,omitempty"`
-	Count                     *int64      `json:"count,omitempty"`
-	Href                      *string     `json:"href,omitempty"`
-	Id                        *int64      `json:"id,omitempty"`
-	IsRozetkaTop              *bool       `json:"is_rozetka_top,omitempty"`
-	LeftKey                   *int64      `json:"left_key,omitempty"`
-	Level                     *int64      `json:"level,omitempty"`
-	Mpath                     *string     `json:"mpath,omitempty"`
-	Name                      *string     `json:"name,omitempty"`
-	ParentId                  *int64      `json:"parent_id,omitempty"`
-	RightKey                  *int64      `json:"right_key,omitempty"`
-	RootId                    *int64      `json:"root_id,omitempty"`
-	RzMpath                   *string     `json:"rz_mpath,omitempty"`
-	Status                    *string     `json:"status,omitempty"`
-	Subdomain                 interface{} `json:"subdomain,omitempty"`
-	Title                     *string     `json:"title,omitempty"`
-	TitlesMode                *string     `json:"titles_mode,omitempty"`
+// GetChildrenResponseDataCurrent struct for GetChildrenResponseDataCurrent
+type GetChildrenResponseDataCurrent struct {
+	AllowIndexThreeParameters *bool `json:"allow_index_three_parameters,omitempty"`
+	Count *int64 `json:"count,omitempty"`
+	Href *string `json:"href,omitempty"`
+	Id *int64 `json:"id,omitempty"`
+	IsRozetkaTop *bool `json:"is_rozetka_top,omitempty"`
+	LeftKey *int64 `json:"left_key,omitempty"`
+	Level *int64 `json:"level,omitempty"`
+	Mpath *string `json:"mpath,omitempty"`
+	Name *string `json:"name,omitempty"`
+	ParentId *int64 `json:"parent_id,omitempty"`
+	RightKey *int64 `json:"right_key,omitempty"`
+	RootId *int64 `json:"root_id,omitempty"`
+	RzMpath *string `json:"rz_mpath,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Subdomain interface{} `json:"subdomain,omitempty"`
+	Title *string `json:"title,omitempty"`
+	TitlesMode *string `json:"titles_mode,omitempty"`
 }
 
-// NewInlineResponse200DataCurrent instantiates a new InlineResponse200DataCurrent object
+// NewGetChildrenResponseDataCurrent instantiates a new GetChildrenResponseDataCurrent object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200DataCurrent() *InlineResponse200DataCurrent {
-	this := InlineResponse200DataCurrent{}
+func NewGetChildrenResponseDataCurrent() *GetChildrenResponseDataCurrent {
+	this := GetChildrenResponseDataCurrent{}
 	return &this
 }
 
-// NewInlineResponse200DataCurrentWithDefaults instantiates a new InlineResponse200DataCurrent object
+// NewGetChildrenResponseDataCurrentWithDefaults instantiates a new GetChildrenResponseDataCurrent object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse200DataCurrentWithDefaults() *InlineResponse200DataCurrent {
-	this := InlineResponse200DataCurrent{}
+func NewGetChildrenResponseDataCurrentWithDefaults() *GetChildrenResponseDataCurrent {
+	this := GetChildrenResponseDataCurrent{}
 	return &this
 }
 
 // GetAllowIndexThreeParameters returns the AllowIndexThreeParameters field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetAllowIndexThreeParameters() bool {
+func (o *GetChildrenResponseDataCurrent) GetAllowIndexThreeParameters() bool {
 	if o == nil || o.AllowIndexThreeParameters == nil {
 		var ret bool
 		return ret
@@ -63,7 +63,7 @@ func (o *InlineResponse200DataCurrent) GetAllowIndexThreeParameters() bool {
 
 // GetAllowIndexThreeParametersOk returns a tuple with the AllowIndexThreeParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetAllowIndexThreeParametersOk() (*bool, bool) {
+func (o *GetChildrenResponseDataCurrent) GetAllowIndexThreeParametersOk() (*bool, bool) {
 	if o == nil || o.AllowIndexThreeParameters == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *InlineResponse200DataCurrent) GetAllowIndexThreeParametersOk() (*bool, 
 }
 
 // HasAllowIndexThreeParameters returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasAllowIndexThreeParameters() bool {
+func (o *GetChildrenResponseDataCurrent) HasAllowIndexThreeParameters() bool {
 	if o != nil && o.AllowIndexThreeParameters != nil {
 		return true
 	}
@@ -80,12 +80,12 @@ func (o *InlineResponse200DataCurrent) HasAllowIndexThreeParameters() bool {
 }
 
 // SetAllowIndexThreeParameters gets a reference to the given bool and assigns it to the AllowIndexThreeParameters field.
-func (o *InlineResponse200DataCurrent) SetAllowIndexThreeParameters(v bool) {
+func (o *GetChildrenResponseDataCurrent) SetAllowIndexThreeParameters(v bool) {
 	o.AllowIndexThreeParameters = &v
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetCount() int64 {
+func (o *GetChildrenResponseDataCurrent) GetCount() int64 {
 	if o == nil || o.Count == nil {
 		var ret int64
 		return ret
@@ -95,7 +95,7 @@ func (o *InlineResponse200DataCurrent) GetCount() int64 {
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetCountOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetCountOk() (*int64, bool) {
 	if o == nil || o.Count == nil {
 		return nil, false
 	}
@@ -103,7 +103,7 @@ func (o *InlineResponse200DataCurrent) GetCountOk() (*int64, bool) {
 }
 
 // HasCount returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasCount() bool {
+func (o *GetChildrenResponseDataCurrent) HasCount() bool {
 	if o != nil && o.Count != nil {
 		return true
 	}
@@ -112,12 +112,12 @@ func (o *InlineResponse200DataCurrent) HasCount() bool {
 }
 
 // SetCount gets a reference to the given int64 and assigns it to the Count field.
-func (o *InlineResponse200DataCurrent) SetCount(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetCount(v int64) {
 	o.Count = &v
 }
 
 // GetHref returns the Href field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetHref() string {
+func (o *GetChildrenResponseDataCurrent) GetHref() string {
 	if o == nil || o.Href == nil {
 		var ret string
 		return ret
@@ -127,7 +127,7 @@ func (o *InlineResponse200DataCurrent) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetHrefOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetHrefOk() (*string, bool) {
 	if o == nil || o.Href == nil {
 		return nil, false
 	}
@@ -135,7 +135,7 @@ func (o *InlineResponse200DataCurrent) GetHrefOk() (*string, bool) {
 }
 
 // HasHref returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasHref() bool {
+func (o *GetChildrenResponseDataCurrent) HasHref() bool {
 	if o != nil && o.Href != nil {
 		return true
 	}
@@ -144,12 +144,12 @@ func (o *InlineResponse200DataCurrent) HasHref() bool {
 }
 
 // SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *InlineResponse200DataCurrent) SetHref(v string) {
+func (o *GetChildrenResponseDataCurrent) SetHref(v string) {
 	o.Href = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetId() int64 {
+func (o *GetChildrenResponseDataCurrent) GetId() int64 {
 	if o == nil || o.Id == nil {
 		var ret int64
 		return ret
@@ -159,7 +159,7 @@ func (o *InlineResponse200DataCurrent) GetId() int64 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetIdOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetIdOk() (*int64, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *InlineResponse200DataCurrent) GetIdOk() (*int64, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasId() bool {
+func (o *GetChildrenResponseDataCurrent) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -176,12 +176,12 @@ func (o *InlineResponse200DataCurrent) HasId() bool {
 }
 
 // SetId gets a reference to the given int64 and assigns it to the Id field.
-func (o *InlineResponse200DataCurrent) SetId(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetId(v int64) {
 	o.Id = &v
 }
 
 // GetIsRozetkaTop returns the IsRozetkaTop field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetIsRozetkaTop() bool {
+func (o *GetChildrenResponseDataCurrent) GetIsRozetkaTop() bool {
 	if o == nil || o.IsRozetkaTop == nil {
 		var ret bool
 		return ret
@@ -191,7 +191,7 @@ func (o *InlineResponse200DataCurrent) GetIsRozetkaTop() bool {
 
 // GetIsRozetkaTopOk returns a tuple with the IsRozetkaTop field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetIsRozetkaTopOk() (*bool, bool) {
+func (o *GetChildrenResponseDataCurrent) GetIsRozetkaTopOk() (*bool, bool) {
 	if o == nil || o.IsRozetkaTop == nil {
 		return nil, false
 	}
@@ -199,7 +199,7 @@ func (o *InlineResponse200DataCurrent) GetIsRozetkaTopOk() (*bool, bool) {
 }
 
 // HasIsRozetkaTop returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasIsRozetkaTop() bool {
+func (o *GetChildrenResponseDataCurrent) HasIsRozetkaTop() bool {
 	if o != nil && o.IsRozetkaTop != nil {
 		return true
 	}
@@ -208,12 +208,12 @@ func (o *InlineResponse200DataCurrent) HasIsRozetkaTop() bool {
 }
 
 // SetIsRozetkaTop gets a reference to the given bool and assigns it to the IsRozetkaTop field.
-func (o *InlineResponse200DataCurrent) SetIsRozetkaTop(v bool) {
+func (o *GetChildrenResponseDataCurrent) SetIsRozetkaTop(v bool) {
 	o.IsRozetkaTop = &v
 }
 
 // GetLeftKey returns the LeftKey field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetLeftKey() int64 {
+func (o *GetChildrenResponseDataCurrent) GetLeftKey() int64 {
 	if o == nil || o.LeftKey == nil {
 		var ret int64
 		return ret
@@ -223,7 +223,7 @@ func (o *InlineResponse200DataCurrent) GetLeftKey() int64 {
 
 // GetLeftKeyOk returns a tuple with the LeftKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetLeftKeyOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetLeftKeyOk() (*int64, bool) {
 	if o == nil || o.LeftKey == nil {
 		return nil, false
 	}
@@ -231,7 +231,7 @@ func (o *InlineResponse200DataCurrent) GetLeftKeyOk() (*int64, bool) {
 }
 
 // HasLeftKey returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasLeftKey() bool {
+func (o *GetChildrenResponseDataCurrent) HasLeftKey() bool {
 	if o != nil && o.LeftKey != nil {
 		return true
 	}
@@ -240,12 +240,12 @@ func (o *InlineResponse200DataCurrent) HasLeftKey() bool {
 }
 
 // SetLeftKey gets a reference to the given int64 and assigns it to the LeftKey field.
-func (o *InlineResponse200DataCurrent) SetLeftKey(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetLeftKey(v int64) {
 	o.LeftKey = &v
 }
 
 // GetLevel returns the Level field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetLevel() int64 {
+func (o *GetChildrenResponseDataCurrent) GetLevel() int64 {
 	if o == nil || o.Level == nil {
 		var ret int64
 		return ret
@@ -255,7 +255,7 @@ func (o *InlineResponse200DataCurrent) GetLevel() int64 {
 
 // GetLevelOk returns a tuple with the Level field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetLevelOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetLevelOk() (*int64, bool) {
 	if o == nil || o.Level == nil {
 		return nil, false
 	}
@@ -263,7 +263,7 @@ func (o *InlineResponse200DataCurrent) GetLevelOk() (*int64, bool) {
 }
 
 // HasLevel returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasLevel() bool {
+func (o *GetChildrenResponseDataCurrent) HasLevel() bool {
 	if o != nil && o.Level != nil {
 		return true
 	}
@@ -272,12 +272,12 @@ func (o *InlineResponse200DataCurrent) HasLevel() bool {
 }
 
 // SetLevel gets a reference to the given int64 and assigns it to the Level field.
-func (o *InlineResponse200DataCurrent) SetLevel(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetLevel(v int64) {
 	o.Level = &v
 }
 
 // GetMpath returns the Mpath field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetMpath() string {
+func (o *GetChildrenResponseDataCurrent) GetMpath() string {
 	if o == nil || o.Mpath == nil {
 		var ret string
 		return ret
@@ -287,7 +287,7 @@ func (o *InlineResponse200DataCurrent) GetMpath() string {
 
 // GetMpathOk returns a tuple with the Mpath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetMpathOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetMpathOk() (*string, bool) {
 	if o == nil || o.Mpath == nil {
 		return nil, false
 	}
@@ -295,7 +295,7 @@ func (o *InlineResponse200DataCurrent) GetMpathOk() (*string, bool) {
 }
 
 // HasMpath returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasMpath() bool {
+func (o *GetChildrenResponseDataCurrent) HasMpath() bool {
 	if o != nil && o.Mpath != nil {
 		return true
 	}
@@ -304,12 +304,12 @@ func (o *InlineResponse200DataCurrent) HasMpath() bool {
 }
 
 // SetMpath gets a reference to the given string and assigns it to the Mpath field.
-func (o *InlineResponse200DataCurrent) SetMpath(v string) {
+func (o *GetChildrenResponseDataCurrent) SetMpath(v string) {
 	o.Mpath = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetName() string {
+func (o *GetChildrenResponseDataCurrent) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -319,7 +319,7 @@ func (o *InlineResponse200DataCurrent) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetNameOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -327,7 +327,7 @@ func (o *InlineResponse200DataCurrent) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasName() bool {
+func (o *GetChildrenResponseDataCurrent) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -336,12 +336,12 @@ func (o *InlineResponse200DataCurrent) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *InlineResponse200DataCurrent) SetName(v string) {
+func (o *GetChildrenResponseDataCurrent) SetName(v string) {
 	o.Name = &v
 }
 
 // GetParentId returns the ParentId field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetParentId() int64 {
+func (o *GetChildrenResponseDataCurrent) GetParentId() int64 {
 	if o == nil || o.ParentId == nil {
 		var ret int64
 		return ret
@@ -351,7 +351,7 @@ func (o *InlineResponse200DataCurrent) GetParentId() int64 {
 
 // GetParentIdOk returns a tuple with the ParentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetParentIdOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetParentIdOk() (*int64, bool) {
 	if o == nil || o.ParentId == nil {
 		return nil, false
 	}
@@ -359,7 +359,7 @@ func (o *InlineResponse200DataCurrent) GetParentIdOk() (*int64, bool) {
 }
 
 // HasParentId returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasParentId() bool {
+func (o *GetChildrenResponseDataCurrent) HasParentId() bool {
 	if o != nil && o.ParentId != nil {
 		return true
 	}
@@ -368,12 +368,12 @@ func (o *InlineResponse200DataCurrent) HasParentId() bool {
 }
 
 // SetParentId gets a reference to the given int64 and assigns it to the ParentId field.
-func (o *InlineResponse200DataCurrent) SetParentId(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetParentId(v int64) {
 	o.ParentId = &v
 }
 
 // GetRightKey returns the RightKey field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetRightKey() int64 {
+func (o *GetChildrenResponseDataCurrent) GetRightKey() int64 {
 	if o == nil || o.RightKey == nil {
 		var ret int64
 		return ret
@@ -383,7 +383,7 @@ func (o *InlineResponse200DataCurrent) GetRightKey() int64 {
 
 // GetRightKeyOk returns a tuple with the RightKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetRightKeyOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetRightKeyOk() (*int64, bool) {
 	if o == nil || o.RightKey == nil {
 		return nil, false
 	}
@@ -391,7 +391,7 @@ func (o *InlineResponse200DataCurrent) GetRightKeyOk() (*int64, bool) {
 }
 
 // HasRightKey returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasRightKey() bool {
+func (o *GetChildrenResponseDataCurrent) HasRightKey() bool {
 	if o != nil && o.RightKey != nil {
 		return true
 	}
@@ -400,12 +400,12 @@ func (o *InlineResponse200DataCurrent) HasRightKey() bool {
 }
 
 // SetRightKey gets a reference to the given int64 and assigns it to the RightKey field.
-func (o *InlineResponse200DataCurrent) SetRightKey(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetRightKey(v int64) {
 	o.RightKey = &v
 }
 
 // GetRootId returns the RootId field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetRootId() int64 {
+func (o *GetChildrenResponseDataCurrent) GetRootId() int64 {
 	if o == nil || o.RootId == nil {
 		var ret int64
 		return ret
@@ -415,7 +415,7 @@ func (o *InlineResponse200DataCurrent) GetRootId() int64 {
 
 // GetRootIdOk returns a tuple with the RootId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetRootIdOk() (*int64, bool) {
+func (o *GetChildrenResponseDataCurrent) GetRootIdOk() (*int64, bool) {
 	if o == nil || o.RootId == nil {
 		return nil, false
 	}
@@ -423,7 +423,7 @@ func (o *InlineResponse200DataCurrent) GetRootIdOk() (*int64, bool) {
 }
 
 // HasRootId returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasRootId() bool {
+func (o *GetChildrenResponseDataCurrent) HasRootId() bool {
 	if o != nil && o.RootId != nil {
 		return true
 	}
@@ -432,12 +432,12 @@ func (o *InlineResponse200DataCurrent) HasRootId() bool {
 }
 
 // SetRootId gets a reference to the given int64 and assigns it to the RootId field.
-func (o *InlineResponse200DataCurrent) SetRootId(v int64) {
+func (o *GetChildrenResponseDataCurrent) SetRootId(v int64) {
 	o.RootId = &v
 }
 
 // GetRzMpath returns the RzMpath field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetRzMpath() string {
+func (o *GetChildrenResponseDataCurrent) GetRzMpath() string {
 	if o == nil || o.RzMpath == nil {
 		var ret string
 		return ret
@@ -447,7 +447,7 @@ func (o *InlineResponse200DataCurrent) GetRzMpath() string {
 
 // GetRzMpathOk returns a tuple with the RzMpath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetRzMpathOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetRzMpathOk() (*string, bool) {
 	if o == nil || o.RzMpath == nil {
 		return nil, false
 	}
@@ -455,7 +455,7 @@ func (o *InlineResponse200DataCurrent) GetRzMpathOk() (*string, bool) {
 }
 
 // HasRzMpath returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasRzMpath() bool {
+func (o *GetChildrenResponseDataCurrent) HasRzMpath() bool {
 	if o != nil && o.RzMpath != nil {
 		return true
 	}
@@ -464,12 +464,12 @@ func (o *InlineResponse200DataCurrent) HasRzMpath() bool {
 }
 
 // SetRzMpath gets a reference to the given string and assigns it to the RzMpath field.
-func (o *InlineResponse200DataCurrent) SetRzMpath(v string) {
+func (o *GetChildrenResponseDataCurrent) SetRzMpath(v string) {
 	o.RzMpath = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetStatus() string {
+func (o *GetChildrenResponseDataCurrent) GetStatus() string {
 	if o == nil || o.Status == nil {
 		var ret string
 		return ret
@@ -479,7 +479,7 @@ func (o *InlineResponse200DataCurrent) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetStatusOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetStatusOk() (*string, bool) {
 	if o == nil || o.Status == nil {
 		return nil, false
 	}
@@ -487,7 +487,7 @@ func (o *InlineResponse200DataCurrent) GetStatusOk() (*string, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasStatus() bool {
+func (o *GetChildrenResponseDataCurrent) HasStatus() bool {
 	if o != nil && o.Status != nil {
 		return true
 	}
@@ -496,13 +496,13 @@ func (o *InlineResponse200DataCurrent) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *InlineResponse200DataCurrent) SetStatus(v string) {
+func (o *GetChildrenResponseDataCurrent) SetStatus(v string) {
 	o.Status = &v
 }
 
 // GetSubdomain returns the Subdomain field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *InlineResponse200DataCurrent) GetSubdomain() interface{} {
-	if o == nil {
+func (o *GetChildrenResponseDataCurrent) GetSubdomain() interface{} {
+	if o == nil  {
 		var ret interface{}
 		return ret
 	}
@@ -512,7 +512,7 @@ func (o *InlineResponse200DataCurrent) GetSubdomain() interface{} {
 // GetSubdomainOk returns a tuple with the Subdomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *InlineResponse200DataCurrent) GetSubdomainOk() (*interface{}, bool) {
+func (o *GetChildrenResponseDataCurrent) GetSubdomainOk() (*interface{}, bool) {
 	if o == nil || o.Subdomain == nil {
 		return nil, false
 	}
@@ -520,7 +520,7 @@ func (o *InlineResponse200DataCurrent) GetSubdomainOk() (*interface{}, bool) {
 }
 
 // HasSubdomain returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasSubdomain() bool {
+func (o *GetChildrenResponseDataCurrent) HasSubdomain() bool {
 	if o != nil && o.Subdomain != nil {
 		return true
 	}
@@ -529,12 +529,12 @@ func (o *InlineResponse200DataCurrent) HasSubdomain() bool {
 }
 
 // SetSubdomain gets a reference to the given interface{} and assigns it to the Subdomain field.
-func (o *InlineResponse200DataCurrent) SetSubdomain(v interface{}) {
+func (o *GetChildrenResponseDataCurrent) SetSubdomain(v interface{}) {
 	o.Subdomain = v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetTitle() string {
+func (o *GetChildrenResponseDataCurrent) GetTitle() string {
 	if o == nil || o.Title == nil {
 		var ret string
 		return ret
@@ -544,7 +544,7 @@ func (o *InlineResponse200DataCurrent) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetTitleOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetTitleOk() (*string, bool) {
 	if o == nil || o.Title == nil {
 		return nil, false
 	}
@@ -552,7 +552,7 @@ func (o *InlineResponse200DataCurrent) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasTitle() bool {
+func (o *GetChildrenResponseDataCurrent) HasTitle() bool {
 	if o != nil && o.Title != nil {
 		return true
 	}
@@ -561,12 +561,12 @@ func (o *InlineResponse200DataCurrent) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *InlineResponse200DataCurrent) SetTitle(v string) {
+func (o *GetChildrenResponseDataCurrent) SetTitle(v string) {
 	o.Title = &v
 }
 
 // GetTitlesMode returns the TitlesMode field value if set, zero value otherwise.
-func (o *InlineResponse200DataCurrent) GetTitlesMode() string {
+func (o *GetChildrenResponseDataCurrent) GetTitlesMode() string {
 	if o == nil || o.TitlesMode == nil {
 		var ret string
 		return ret
@@ -576,7 +576,7 @@ func (o *InlineResponse200DataCurrent) GetTitlesMode() string {
 
 // GetTitlesModeOk returns a tuple with the TitlesMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataCurrent) GetTitlesModeOk() (*string, bool) {
+func (o *GetChildrenResponseDataCurrent) GetTitlesModeOk() (*string, bool) {
 	if o == nil || o.TitlesMode == nil {
 		return nil, false
 	}
@@ -584,7 +584,7 @@ func (o *InlineResponse200DataCurrent) GetTitlesModeOk() (*string, bool) {
 }
 
 // HasTitlesMode returns a boolean if a field has been set.
-func (o *InlineResponse200DataCurrent) HasTitlesMode() bool {
+func (o *GetChildrenResponseDataCurrent) HasTitlesMode() bool {
 	if o != nil && o.TitlesMode != nil {
 		return true
 	}
@@ -593,11 +593,11 @@ func (o *InlineResponse200DataCurrent) HasTitlesMode() bool {
 }
 
 // SetTitlesMode gets a reference to the given string and assigns it to the TitlesMode field.
-func (o *InlineResponse200DataCurrent) SetTitlesMode(v string) {
+func (o *GetChildrenResponseDataCurrent) SetTitlesMode(v string) {
 	o.TitlesMode = &v
 }
 
-func (o InlineResponse200DataCurrent) MarshalJSON() ([]byte, error) {
+func (o GetChildrenResponseDataCurrent) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.AllowIndexThreeParameters != nil {
 		toSerialize["allow_index_three_parameters"] = o.AllowIndexThreeParameters
@@ -653,38 +653,40 @@ func (o InlineResponse200DataCurrent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse200DataCurrent struct {
-	value *InlineResponse200DataCurrent
+type NullableGetChildrenResponseDataCurrent struct {
+	value *GetChildrenResponseDataCurrent
 	isSet bool
 }
 
-func (v NullableInlineResponse200DataCurrent) Get() *InlineResponse200DataCurrent {
+func (v NullableGetChildrenResponseDataCurrent) Get() *GetChildrenResponseDataCurrent {
 	return v.value
 }
 
-func (v *NullableInlineResponse200DataCurrent) Set(val *InlineResponse200DataCurrent) {
+func (v *NullableGetChildrenResponseDataCurrent) Set(val *GetChildrenResponseDataCurrent) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse200DataCurrent) IsSet() bool {
+func (v NullableGetChildrenResponseDataCurrent) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse200DataCurrent) Unset() {
+func (v *NullableGetChildrenResponseDataCurrent) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse200DataCurrent(val *InlineResponse200DataCurrent) *NullableInlineResponse200DataCurrent {
-	return &NullableInlineResponse200DataCurrent{value: val, isSet: true}
+func NewNullableGetChildrenResponseDataCurrent(val *GetChildrenResponseDataCurrent) *NullableGetChildrenResponseDataCurrent {
+	return &NullableGetChildrenResponseDataCurrent{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse200DataCurrent) MarshalJSON() ([]byte, error) {
+func (v NullableGetChildrenResponseDataCurrent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse200DataCurrent) UnmarshalJSON(src []byte) error {
+func (v *NullableGetChildrenResponseDataCurrent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

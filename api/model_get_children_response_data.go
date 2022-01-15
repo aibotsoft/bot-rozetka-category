@@ -14,36 +14,36 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse200Data struct for InlineResponse200Data
-type InlineResponse200Data struct {
-	Children       *[]InlineResponse200DataChildren `json:"children,omitempty"`
-	Current        *InlineResponse200DataCurrent    `json:"current,omitempty"`
-	HasFilter      *bool                            `json:"hasFilter,omitempty"`
-	IsNeedStreetId *bool                            `json:"is_need_street_id,omitempty"`
-	TileConfig     *InlineResponse200DataTileConfig `json:"tile_config,omitempty"`
+// GetChildrenResponseData struct for GetChildrenResponseData
+type GetChildrenResponseData struct {
+	Children *[]GetChildrenResponseDataChildren `json:"children,omitempty"`
+	Current *GetChildrenResponseDataCurrent `json:"current,omitempty"`
+	HasFilter *bool `json:"hasFilter,omitempty"`
+	IsNeedStreetId *bool `json:"is_need_street_id,omitempty"`
+	TileConfig *GetChildrenResponseDataTileConfig `json:"tile_config,omitempty"`
 }
 
-// NewInlineResponse200Data instantiates a new InlineResponse200Data object
+// NewGetChildrenResponseData instantiates a new GetChildrenResponseData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200Data() *InlineResponse200Data {
-	this := InlineResponse200Data{}
+func NewGetChildrenResponseData() *GetChildrenResponseData {
+	this := GetChildrenResponseData{}
 	return &this
 }
 
-// NewInlineResponse200DataWithDefaults instantiates a new InlineResponse200Data object
+// NewGetChildrenResponseDataWithDefaults instantiates a new GetChildrenResponseData object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse200DataWithDefaults() *InlineResponse200Data {
-	this := InlineResponse200Data{}
+func NewGetChildrenResponseDataWithDefaults() *GetChildrenResponseData {
+	this := GetChildrenResponseData{}
 	return &this
 }
 
 // GetChildren returns the Children field value if set, zero value otherwise.
-func (o *InlineResponse200Data) GetChildren() []InlineResponse200DataChildren {
+func (o *GetChildrenResponseData) GetChildren() []GetChildrenResponseDataChildren {
 	if o == nil || o.Children == nil {
-		var ret []InlineResponse200DataChildren
+		var ret []GetChildrenResponseDataChildren
 		return ret
 	}
 	return *o.Children
@@ -51,7 +51,7 @@ func (o *InlineResponse200Data) GetChildren() []InlineResponse200DataChildren {
 
 // GetChildrenOk returns a tuple with the Children field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200Data) GetChildrenOk() (*[]InlineResponse200DataChildren, bool) {
+func (o *GetChildrenResponseData) GetChildrenOk() (*[]GetChildrenResponseDataChildren, bool) {
 	if o == nil || o.Children == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *InlineResponse200Data) GetChildrenOk() (*[]InlineResponse200DataChildre
 }
 
 // HasChildren returns a boolean if a field has been set.
-func (o *InlineResponse200Data) HasChildren() bool {
+func (o *GetChildrenResponseData) HasChildren() bool {
 	if o != nil && o.Children != nil {
 		return true
 	}
@@ -67,15 +67,15 @@ func (o *InlineResponse200Data) HasChildren() bool {
 	return false
 }
 
-// SetChildren gets a reference to the given []InlineResponse200DataChildren and assigns it to the Children field.
-func (o *InlineResponse200Data) SetChildren(v []InlineResponse200DataChildren) {
+// SetChildren gets a reference to the given []GetChildrenResponseDataChildren and assigns it to the Children field.
+func (o *GetChildrenResponseData) SetChildren(v []GetChildrenResponseDataChildren) {
 	o.Children = &v
 }
 
 // GetCurrent returns the Current field value if set, zero value otherwise.
-func (o *InlineResponse200Data) GetCurrent() InlineResponse200DataCurrent {
+func (o *GetChildrenResponseData) GetCurrent() GetChildrenResponseDataCurrent {
 	if o == nil || o.Current == nil {
-		var ret InlineResponse200DataCurrent
+		var ret GetChildrenResponseDataCurrent
 		return ret
 	}
 	return *o.Current
@@ -83,7 +83,7 @@ func (o *InlineResponse200Data) GetCurrent() InlineResponse200DataCurrent {
 
 // GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200Data) GetCurrentOk() (*InlineResponse200DataCurrent, bool) {
+func (o *GetChildrenResponseData) GetCurrentOk() (*GetChildrenResponseDataCurrent, bool) {
 	if o == nil || o.Current == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *InlineResponse200Data) GetCurrentOk() (*InlineResponse200DataCurrent, b
 }
 
 // HasCurrent returns a boolean if a field has been set.
-func (o *InlineResponse200Data) HasCurrent() bool {
+func (o *GetChildrenResponseData) HasCurrent() bool {
 	if o != nil && o.Current != nil {
 		return true
 	}
@@ -99,13 +99,13 @@ func (o *InlineResponse200Data) HasCurrent() bool {
 	return false
 }
 
-// SetCurrent gets a reference to the given InlineResponse200DataCurrent and assigns it to the Current field.
-func (o *InlineResponse200Data) SetCurrent(v InlineResponse200DataCurrent) {
+// SetCurrent gets a reference to the given GetChildrenResponseDataCurrent and assigns it to the Current field.
+func (o *GetChildrenResponseData) SetCurrent(v GetChildrenResponseDataCurrent) {
 	o.Current = &v
 }
 
 // GetHasFilter returns the HasFilter field value if set, zero value otherwise.
-func (o *InlineResponse200Data) GetHasFilter() bool {
+func (o *GetChildrenResponseData) GetHasFilter() bool {
 	if o == nil || o.HasFilter == nil {
 		var ret bool
 		return ret
@@ -115,7 +115,7 @@ func (o *InlineResponse200Data) GetHasFilter() bool {
 
 // GetHasFilterOk returns a tuple with the HasFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200Data) GetHasFilterOk() (*bool, bool) {
+func (o *GetChildrenResponseData) GetHasFilterOk() (*bool, bool) {
 	if o == nil || o.HasFilter == nil {
 		return nil, false
 	}
@@ -123,7 +123,7 @@ func (o *InlineResponse200Data) GetHasFilterOk() (*bool, bool) {
 }
 
 // HasHasFilter returns a boolean if a field has been set.
-func (o *InlineResponse200Data) HasHasFilter() bool {
+func (o *GetChildrenResponseData) HasHasFilter() bool {
 	if o != nil && o.HasFilter != nil {
 		return true
 	}
@@ -132,12 +132,12 @@ func (o *InlineResponse200Data) HasHasFilter() bool {
 }
 
 // SetHasFilter gets a reference to the given bool and assigns it to the HasFilter field.
-func (o *InlineResponse200Data) SetHasFilter(v bool) {
+func (o *GetChildrenResponseData) SetHasFilter(v bool) {
 	o.HasFilter = &v
 }
 
 // GetIsNeedStreetId returns the IsNeedStreetId field value if set, zero value otherwise.
-func (o *InlineResponse200Data) GetIsNeedStreetId() bool {
+func (o *GetChildrenResponseData) GetIsNeedStreetId() bool {
 	if o == nil || o.IsNeedStreetId == nil {
 		var ret bool
 		return ret
@@ -147,7 +147,7 @@ func (o *InlineResponse200Data) GetIsNeedStreetId() bool {
 
 // GetIsNeedStreetIdOk returns a tuple with the IsNeedStreetId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200Data) GetIsNeedStreetIdOk() (*bool, bool) {
+func (o *GetChildrenResponseData) GetIsNeedStreetIdOk() (*bool, bool) {
 	if o == nil || o.IsNeedStreetId == nil {
 		return nil, false
 	}
@@ -155,7 +155,7 @@ func (o *InlineResponse200Data) GetIsNeedStreetIdOk() (*bool, bool) {
 }
 
 // HasIsNeedStreetId returns a boolean if a field has been set.
-func (o *InlineResponse200Data) HasIsNeedStreetId() bool {
+func (o *GetChildrenResponseData) HasIsNeedStreetId() bool {
 	if o != nil && o.IsNeedStreetId != nil {
 		return true
 	}
@@ -164,14 +164,14 @@ func (o *InlineResponse200Data) HasIsNeedStreetId() bool {
 }
 
 // SetIsNeedStreetId gets a reference to the given bool and assigns it to the IsNeedStreetId field.
-func (o *InlineResponse200Data) SetIsNeedStreetId(v bool) {
+func (o *GetChildrenResponseData) SetIsNeedStreetId(v bool) {
 	o.IsNeedStreetId = &v
 }
 
 // GetTileConfig returns the TileConfig field value if set, zero value otherwise.
-func (o *InlineResponse200Data) GetTileConfig() InlineResponse200DataTileConfig {
+func (o *GetChildrenResponseData) GetTileConfig() GetChildrenResponseDataTileConfig {
 	if o == nil || o.TileConfig == nil {
-		var ret InlineResponse200DataTileConfig
+		var ret GetChildrenResponseDataTileConfig
 		return ret
 	}
 	return *o.TileConfig
@@ -179,7 +179,7 @@ func (o *InlineResponse200Data) GetTileConfig() InlineResponse200DataTileConfig 
 
 // GetTileConfigOk returns a tuple with the TileConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200Data) GetTileConfigOk() (*InlineResponse200DataTileConfig, bool) {
+func (o *GetChildrenResponseData) GetTileConfigOk() (*GetChildrenResponseDataTileConfig, bool) {
 	if o == nil || o.TileConfig == nil {
 		return nil, false
 	}
@@ -187,7 +187,7 @@ func (o *InlineResponse200Data) GetTileConfigOk() (*InlineResponse200DataTileCon
 }
 
 // HasTileConfig returns a boolean if a field has been set.
-func (o *InlineResponse200Data) HasTileConfig() bool {
+func (o *GetChildrenResponseData) HasTileConfig() bool {
 	if o != nil && o.TileConfig != nil {
 		return true
 	}
@@ -195,12 +195,12 @@ func (o *InlineResponse200Data) HasTileConfig() bool {
 	return false
 }
 
-// SetTileConfig gets a reference to the given InlineResponse200DataTileConfig and assigns it to the TileConfig field.
-func (o *InlineResponse200Data) SetTileConfig(v InlineResponse200DataTileConfig) {
+// SetTileConfig gets a reference to the given GetChildrenResponseDataTileConfig and assigns it to the TileConfig field.
+func (o *GetChildrenResponseData) SetTileConfig(v GetChildrenResponseDataTileConfig) {
 	o.TileConfig = &v
 }
 
-func (o InlineResponse200Data) MarshalJSON() ([]byte, error) {
+func (o GetChildrenResponseData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Children != nil {
 		toSerialize["children"] = o.Children
@@ -220,38 +220,40 @@ func (o InlineResponse200Data) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse200Data struct {
-	value *InlineResponse200Data
+type NullableGetChildrenResponseData struct {
+	value *GetChildrenResponseData
 	isSet bool
 }
 
-func (v NullableInlineResponse200Data) Get() *InlineResponse200Data {
+func (v NullableGetChildrenResponseData) Get() *GetChildrenResponseData {
 	return v.value
 }
 
-func (v *NullableInlineResponse200Data) Set(val *InlineResponse200Data) {
+func (v *NullableGetChildrenResponseData) Set(val *GetChildrenResponseData) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse200Data) IsSet() bool {
+func (v NullableGetChildrenResponseData) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse200Data) Unset() {
+func (v *NullableGetChildrenResponseData) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse200Data(val *InlineResponse200Data) *NullableInlineResponse200Data {
-	return &NullableInlineResponse200Data{value: val, isSet: true}
+func NewNullableGetChildrenResponseData(val *GetChildrenResponseData) *NullableGetChildrenResponseData {
+	return &NullableGetChildrenResponseData{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse200Data) MarshalJSON() ([]byte, error) {
+func (v NullableGetChildrenResponseData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse200Data) UnmarshalJSON(src []byte) error {
+func (v *NullableGetChildrenResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

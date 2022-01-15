@@ -3,80 +3,73 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/aibotsoft/bot-rozetka-category/api"
 	"github.com/aibotsoft/bot-rozetka-category/pkg/config"
-	"github.com/caarlos0/env/v6"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
-	"gorm.io/gorm/clause"
+	"github.com/aibotsoft/bot-rozetka-category/pkg/logger"
+	"github.com/aibotsoft/bot-rozetka-category/pkg/signals"
+	"github.com/aibotsoft/bot-rozetka-category/pkg/store"
+	"github.com/aibotsoft/bot-rozetka-category/service/bot"
+	"github.com/aibotsoft/bot-rozetka-category/service/collector"
+	"go.uber.org/zap"
 	"net/http"
-	"time"
 )
 
-const rootCategoryID = "83850"
-
-type Category struct {
-	ID        uint `gorm:"primarykey"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt `gorm:"index"`
-	Count     int64          `json:"count,omitempty"`
-	Name      string         `json:"name,omitempty"`
-	Title     string         `json:"title,omitempty"`
-}
-
 func main() {
-	cfg := config.Config{}
-	if err := env.Parse(&cfg); err != nil {
-		fmt.Printf("%+v\n", err)
-	}
-	fmt.Println(cfg)
-	//dsn := "host=localhost user=postgres password=postgres dbname=rozetka port=5432 sslmode=disable"
-	db, err := gorm.Open(postgres.Open(cfg.PostgresDSN), &gorm.Config{})
+	cfg, err := config.NewConfig()
 	if err != nil {
 		panic(err)
 	}
-	err = db.AutoMigrate(&Category{})
+	log, err := logger.NewLogger(cfg.LogLever, cfg.LogEncoding)
 	if err != nil {
 		panic(err)
+	}
+	log.Info("start_service", zap.Any("cfg", cfg))
+
+	sto, err := store.NewStore(log, cfg)
+	if err != nil {
+		log.Panic("new_store_error", zap.Error(err))
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+
+	tg, err := bot.NewBot(log, cfg, ctx, sto)
+	if err != nil {
+		log.Panic("new_telegram_bot_error", zap.Error(err))
 	}
 
-	//fmt.Println("hello world", cfg.ApiDebug, db)
-	conf := api.NewConfiguration()
-	conf.Debug = cfg.ApiDebug
-	client := api.NewAPIClient(conf)
-	categories, err := getCategories(client)
-	if err != nil {
-		panic(err)
-	}
-	//fmt.Println(categories)
-	result := db.Clauses(clause.OnConflict{UpdateAll: true}).Create(&categories)
-	fmt.Println(result.Error)
-	fmt.Println(result.RowsAffected)
+	c := collector.NewCollector(log, cfg, ctx, sto, tg)
+
+	go func() {
+		tg.Run()
+	}()
+
+	errCh := make(chan error)
+
+	go func() {
+		log.Info("begin_main_service_loop")
+		errCh <- c.Run()
+	}()
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello World!")
 	})
-	fmt.Println("http://localhost:8080/")
-	err = http.ListenAndServe(":8080", nil)
-	if err != nil {
-		panic(err)
+	go func() {
+		log.Info("listen_on_port", zap.String("port", cfg.Port), zap.String("url", fmt.Sprintf("http://localhost:%s", cfg.Port)))
+		errCh <- http.ListenAndServe(fmt.Sprintf("%s:%s", "", cfg.Port), nil)
+	}()
+
+	defer func() {
+		log.Info("closing_services...")
+		cancel()
+		err = sto.Close()
+		if err != nil {
+			log.Error("close_db_error", zap.Error(err))
+		}
+		_ = log.Sync()
+	}()
+	stopCh := signals.SetupSignalHandler()
+	select {
+	case err := <-errCh:
+		log.Error("stop_service_by_error", zap.Error(err))
+	case sig := <-stopCh:
+		log.Info("stop_service_by_os_signal", zap.String("signal", sig.String()))
 	}
-}
-func getCategories(client *api.APIClient) ([]Category, error) {
-	resp, _, err := client.CategoriesApi.GetChildren(context.Background()).Lang("ru").CategoryId(rootCategoryID).Execute()
-	if err != nil {
-		return nil, err
-	}
-	children := resp.Data.GetChildren()
-	var categories []Category
-	for _, child := range children {
-		//fmt.Println(child.GetId())
-		categories = append(categories, Category{
-			ID:    uint(child.GetId()),
-			Count: child.GetCount(),
-			Name:  child.GetName(),
-			Title: child.GetTitle(),
-		})
-	}
-	return categories, nil
 }

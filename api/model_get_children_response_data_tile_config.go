@@ -14,32 +14,32 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse200DataTileConfig struct for InlineResponse200DataTileConfig
-type InlineResponse200DataTileConfig struct {
+// GetChildrenResponseDataTileConfig struct for GetChildrenResponseDataTileConfig
+type GetChildrenResponseDataTileConfig struct {
 	PossibleTemplates *[]string `json:"possible_templates,omitempty"`
-	Template          *string   `json:"template,omitempty"`
-	TemplateView      *string   `json:"template_view,omitempty"`
+	Template *string `json:"template,omitempty"`
+	TemplateView *string `json:"template_view,omitempty"`
 }
 
-// NewInlineResponse200DataTileConfig instantiates a new InlineResponse200DataTileConfig object
+// NewGetChildrenResponseDataTileConfig instantiates a new GetChildrenResponseDataTileConfig object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200DataTileConfig() *InlineResponse200DataTileConfig {
-	this := InlineResponse200DataTileConfig{}
+func NewGetChildrenResponseDataTileConfig() *GetChildrenResponseDataTileConfig {
+	this := GetChildrenResponseDataTileConfig{}
 	return &this
 }
 
-// NewInlineResponse200DataTileConfigWithDefaults instantiates a new InlineResponse200DataTileConfig object
+// NewGetChildrenResponseDataTileConfigWithDefaults instantiates a new GetChildrenResponseDataTileConfig object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse200DataTileConfigWithDefaults() *InlineResponse200DataTileConfig {
-	this := InlineResponse200DataTileConfig{}
+func NewGetChildrenResponseDataTileConfigWithDefaults() *GetChildrenResponseDataTileConfig {
+	this := GetChildrenResponseDataTileConfig{}
 	return &this
 }
 
 // GetPossibleTemplates returns the PossibleTemplates field value if set, zero value otherwise.
-func (o *InlineResponse200DataTileConfig) GetPossibleTemplates() []string {
+func (o *GetChildrenResponseDataTileConfig) GetPossibleTemplates() []string {
 	if o == nil || o.PossibleTemplates == nil {
 		var ret []string
 		return ret
@@ -49,7 +49,7 @@ func (o *InlineResponse200DataTileConfig) GetPossibleTemplates() []string {
 
 // GetPossibleTemplatesOk returns a tuple with the PossibleTemplates field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataTileConfig) GetPossibleTemplatesOk() (*[]string, bool) {
+func (o *GetChildrenResponseDataTileConfig) GetPossibleTemplatesOk() (*[]string, bool) {
 	if o == nil || o.PossibleTemplates == nil {
 		return nil, false
 	}
@@ -57,7 +57,7 @@ func (o *InlineResponse200DataTileConfig) GetPossibleTemplatesOk() (*[]string, b
 }
 
 // HasPossibleTemplates returns a boolean if a field has been set.
-func (o *InlineResponse200DataTileConfig) HasPossibleTemplates() bool {
+func (o *GetChildrenResponseDataTileConfig) HasPossibleTemplates() bool {
 	if o != nil && o.PossibleTemplates != nil {
 		return true
 	}
@@ -66,12 +66,12 @@ func (o *InlineResponse200DataTileConfig) HasPossibleTemplates() bool {
 }
 
 // SetPossibleTemplates gets a reference to the given []string and assigns it to the PossibleTemplates field.
-func (o *InlineResponse200DataTileConfig) SetPossibleTemplates(v []string) {
+func (o *GetChildrenResponseDataTileConfig) SetPossibleTemplates(v []string) {
 	o.PossibleTemplates = &v
 }
 
 // GetTemplate returns the Template field value if set, zero value otherwise.
-func (o *InlineResponse200DataTileConfig) GetTemplate() string {
+func (o *GetChildrenResponseDataTileConfig) GetTemplate() string {
 	if o == nil || o.Template == nil {
 		var ret string
 		return ret
@@ -81,7 +81,7 @@ func (o *InlineResponse200DataTileConfig) GetTemplate() string {
 
 // GetTemplateOk returns a tuple with the Template field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataTileConfig) GetTemplateOk() (*string, bool) {
+func (o *GetChildrenResponseDataTileConfig) GetTemplateOk() (*string, bool) {
 	if o == nil || o.Template == nil {
 		return nil, false
 	}
@@ -89,7 +89,7 @@ func (o *InlineResponse200DataTileConfig) GetTemplateOk() (*string, bool) {
 }
 
 // HasTemplate returns a boolean if a field has been set.
-func (o *InlineResponse200DataTileConfig) HasTemplate() bool {
+func (o *GetChildrenResponseDataTileConfig) HasTemplate() bool {
 	if o != nil && o.Template != nil {
 		return true
 	}
@@ -98,12 +98,12 @@ func (o *InlineResponse200DataTileConfig) HasTemplate() bool {
 }
 
 // SetTemplate gets a reference to the given string and assigns it to the Template field.
-func (o *InlineResponse200DataTileConfig) SetTemplate(v string) {
+func (o *GetChildrenResponseDataTileConfig) SetTemplate(v string) {
 	o.Template = &v
 }
 
 // GetTemplateView returns the TemplateView field value if set, zero value otherwise.
-func (o *InlineResponse200DataTileConfig) GetTemplateView() string {
+func (o *GetChildrenResponseDataTileConfig) GetTemplateView() string {
 	if o == nil || o.TemplateView == nil {
 		var ret string
 		return ret
@@ -113,7 +113,7 @@ func (o *InlineResponse200DataTileConfig) GetTemplateView() string {
 
 // GetTemplateViewOk returns a tuple with the TemplateView field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200DataTileConfig) GetTemplateViewOk() (*string, bool) {
+func (o *GetChildrenResponseDataTileConfig) GetTemplateViewOk() (*string, bool) {
 	if o == nil || o.TemplateView == nil {
 		return nil, false
 	}
@@ -121,7 +121,7 @@ func (o *InlineResponse200DataTileConfig) GetTemplateViewOk() (*string, bool) {
 }
 
 // HasTemplateView returns a boolean if a field has been set.
-func (o *InlineResponse200DataTileConfig) HasTemplateView() bool {
+func (o *GetChildrenResponseDataTileConfig) HasTemplateView() bool {
 	if o != nil && o.TemplateView != nil {
 		return true
 	}
@@ -130,11 +130,11 @@ func (o *InlineResponse200DataTileConfig) HasTemplateView() bool {
 }
 
 // SetTemplateView gets a reference to the given string and assigns it to the TemplateView field.
-func (o *InlineResponse200DataTileConfig) SetTemplateView(v string) {
+func (o *GetChildrenResponseDataTileConfig) SetTemplateView(v string) {
 	o.TemplateView = &v
 }
 
-func (o InlineResponse200DataTileConfig) MarshalJSON() ([]byte, error) {
+func (o GetChildrenResponseDataTileConfig) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.PossibleTemplates != nil {
 		toSerialize["possible_templates"] = o.PossibleTemplates
@@ -148,38 +148,40 @@ func (o InlineResponse200DataTileConfig) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse200DataTileConfig struct {
-	value *InlineResponse200DataTileConfig
+type NullableGetChildrenResponseDataTileConfig struct {
+	value *GetChildrenResponseDataTileConfig
 	isSet bool
 }
 
-func (v NullableInlineResponse200DataTileConfig) Get() *InlineResponse200DataTileConfig {
+func (v NullableGetChildrenResponseDataTileConfig) Get() *GetChildrenResponseDataTileConfig {
 	return v.value
 }
 
-func (v *NullableInlineResponse200DataTileConfig) Set(val *InlineResponse200DataTileConfig) {
+func (v *NullableGetChildrenResponseDataTileConfig) Set(val *GetChildrenResponseDataTileConfig) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse200DataTileConfig) IsSet() bool {
+func (v NullableGetChildrenResponseDataTileConfig) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse200DataTileConfig) Unset() {
+func (v *NullableGetChildrenResponseDataTileConfig) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse200DataTileConfig(val *InlineResponse200DataTileConfig) *NullableInlineResponse200DataTileConfig {
-	return &NullableInlineResponse200DataTileConfig{value: val, isSet: true}
+func NewNullableGetChildrenResponseDataTileConfig(val *GetChildrenResponseDataTileConfig) *NullableGetChildrenResponseDataTileConfig {
+	return &NullableGetChildrenResponseDataTileConfig{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse200DataTileConfig) MarshalJSON() ([]byte, error) {
+func (v NullableGetChildrenResponseDataTileConfig) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse200DataTileConfig) UnmarshalJSON(src []byte) error {
+func (v *NullableGetChildrenResponseDataTileConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -7,179 +7,520 @@ info:
 servers:
   - url: "https://xl-catalog-api.rozetka.com.ua"
 paths:
+  /{product_id}/p{product_id}/:
+    servers:
+      - url: https://rozetka.com.ua
+    get:
+      summary: productPage
+      description: productPage
+      operationId: productPage
+      parameters:
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: integer
+      responses:
+        200:
+          description: "productPage"
+          content:
+            text/html:
+              schema:
+                type: string
+  
   /v4/categories/getChildren:
     get:
-      tags:
-        - categories
-      summary: getChildren
-      description: getChildren
       operationId: getChildren
       parameters:
         - name: category_id
           in: query
           required: true
           schema:
-            type: string
-            example: "83850"
+            type: integer
+            example: 83850
         - name: lang
           in: query
           schema:
             type: string
             example: ru
       responses:
-        "200":
-          description: getChildren
+        default:
+          $ref: '#/components/responses/Fuck'
+
+  /v4/goods/get:
+    get:
+      operationId: getProductsInCategory
+      parameters:
+        - name: category_id
+          in: query
+          schema:
+            type: string
+            example: "101808"
+        - name: page
+          in: query
+          schema:
+            type: string
+            example: "2"
+      responses:
+        200:
+          description: getProductsInCategory
           content:
             application/json:
               schema:
+                $ref: '#/components/schemas/getProductsInCategoryResponse'
+
+  /v4/goods/getDetails:
+    get:
+      summary: getProductDetails
+      description: getProductDetails
+      operationId: getProductDetails
+      parameters:
+        - name: lang
+          in: query
+          schema:
+            type: string
+            example: ru
+        - name: with_groups
+          in: query
+          schema:
+            type: string
+            example: "1"
+        - name: product_ids
+          in: query
+          schema:
+            type: string
+            example: "330204580"
+      responses:
+        200:
+          description: getProductDetails
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getProductDetailsResponse'
+
+
+components:
+  schemas:
+    getProductDetailsResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            required:
+              - id
+              - title
+            type: object
+            properties:
+              brand:
+                type: string
+                example: Samsung
+              brand_id:
+                type: integer
+                example: 12
+              category_id:
+                type: integer
+                example: 101808
+              comments_amount:
+                type: number
+                example: 1
+              comments_mark:
+                type: number
+                example: 1
+              config:
                 type: object
                 properties:
-                  data:
-                    type: object
-                    properties:
-                      children:
-                        type: array
-                        items:
-                          type: object
-                          required:
-                            - id
-                          properties:
-                            allow_index_three_parameters:
-                              type: boolean
-                              example: false
-                            attach:
-                              type: string
-                              example: "https://content1.rozetka.com.ua/goods/top/original/228454121.jpg"
-                            child_id:
-                              type: number
-                              example: 0
-                            count:
-                              type: integer
-                              example: 136
-                            count_children:
-                              type: number
-                              example: 0
-                            goods_count:
-                              type: integer
-                              example: 136
-                            goods_id:
-                              type: integer
-                              example: 330204607
-                            href:
-                              type: string
-                              example: "https://rozetka.com.ua/utsenennye-aksessuary/c101808/"
-                            id:
-                              type: integer
-                              example: 101808
-                            is_append_goods:
-                              type: boolean
-                              example: false
-                            is_rozetka_top:
-                              type: boolean
-                              example: true
-                            left_key:
-                              type: integer
-                              example: 3397
-                            level:
-                              type: number
-                              example: 2
-                            mpath:
-                              type: string
-                              example: ".83850."
-                            name:
-                              type: string
-                              example: utsenennye-aksessuary
-                            parent_id:
-                              type: integer
-                              example: 83850
-                            right_key:
-                              type: integer
-                              example: 3398
-                            rz_mpath:
-                              type: string
-                              example: ".83850.101808."
-                            status:
-                              type: string
-                              example: active
-                            title:
-                              type: string
-                              example: Уцененные аксессуары
-                            titles_mode:
-                              type: string
-                              example: inherited
-                      current:
-                        type: object
-                        properties:
-                          allow_index_three_parameters:
-                            type: boolean
-                            example: false
-                          count:
-                            type: integer
-                            example: 1793
-                          href:
-                            type: string
-                            example: "https://rozetka.com.ua/rasprodaja/c83850/"
-                          id:
-                            type: integer
-                            example: 83850
-                          is_rozetka_top:
-                            type: boolean
-                            example: false
-                          left_key:
-                            type: integer
-                            example: 3358
-                          level:
-                            type: integer
-                            example: 1
-                          mpath:
-                            type: string
-                            example: "."
-                          name:
-                            type: string
-                            example: rasprodaja
-                          parent_id:
-                            type: integer
-                            example: 0
-                          right_key:
-                            type: integer
-                            example: 3485
-                          root_id:
-                            type: integer
-                            example: 83850
-                          rz_mpath:
-                            type: string
-                            example: ".83850."
-                          status:
-                            type: string
-                            example: active
-                          subdomain:
-                            nullable: true
-                            example: ~
-                          title:
-                            type: string
-                            example: Уцененные товары
-                          titles_mode:
-                            type: string
-                            example: inherited
-                      hasFilter:
-                        type: boolean
-                        example: false
-                      is_need_street_id:
-                        type: boolean
-                        example: false
-                      tile_config:
-                        type: object
-                        properties:
-                          possible_templates:
-                            type: array
-                            items:
-                              type: string
-                              example: default
-                          template:
-                            type: string
-                            example: default
-                          template_view:
-                            type: string
-                            example: default
-tags:
-  - name: categories
+                  bonus:
+                    type: boolean
+                    example: true
+                  brand:
+                    type: boolean
+                    example: false
+                  buy_button:
+                    type: boolean
+                    example: true
+                  compare_button:
+                    type: boolean
+                    example: true
+                  description:
+                    type: boolean
+                    example: true
+                  gift:
+                    type: boolean
+                    example: true
+                  image:
+                    type: boolean
+                    example: true
+                  old_price:
+                    type: boolean
+                    example: true
+                  pictograms:
+                    type: boolean
+                    example: true
+                  price:
+                    type: boolean
+                    example: true
+                  promo_price:
+                    type: boolean
+                    example: true
+                  rating:
+                    type: boolean
+                    example: true
+                  status:
+                    type: boolean
+                    example: true
+                  tags:
+                    type: boolean
+                    example: true
+                  title:
+                    type: boolean
+                    example: true
+                  variables:
+                    type: boolean
+                    example: true
+                  wishlist_button:
+                    type: boolean
+                    example: true
+              discount:
+                type: number
+                example: 0
+              dispatch:
+                type: number
+                example: 1
+              docket:
+                type: string
+                example: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Повреждена упаковка</span>"
+              gift:
+                nullable: true
+                example: ~
+              group_id:
+                type: integer
+                example: 0
+              group_name:
+                nullable: true
+                example: ~
+              group_title:
+                nullable: true
+                example: ~
+              groups:
+                type: array
+                items: { }
+              href:
+                type: string
+                example: "https://rozetka.com.ua/329767798/p329767798/"
+              id:
+                type: integer
+                example: 329767798
+              image_main:
+                type: string
+                example: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+              images:
+                type: object
+                properties:
+                  all_images:
+                    type: array
+                    items:
+                      type: string
+                      example: "https://content2.rozetka.com.ua/goods/images/original/242655481.jpg"
+                  hover:
+                    type: string
+                    example: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                  main:
+                    type: string
+                    example: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                  preview:
+                    type: string
+                    example: "https://content2.rozetka.com.ua/goods/images/preview/242655481.jpg"
+              is_group_primary:
+                type: number
+                example: 0
+              is_need_street_id:
+                type: boolean
+                example: false
+              merchant_id:
+                type: number
+                example: 2
+              mpath:
+                type: string
+                example: ".83850.101808."
+              old_price:
+                type: number
+                example: 0
+              parent_category_id:
+                type: number
+                example: 83850
+              pl_bonus_charge_pcs:
+                type: number
+                example: 0
+              pl_use_instant_bonus:
+                type: number
+                example: 0
+              premium:
+                type: number
+                example: 0
+              preorder:
+                type: number
+                example: 0
+              price:
+                type: number
+                example: 5103
+              price_pcs:
+                type: string
+                example: "186.24"
+              primary_good_title:
+                nullable: true
+                example: ~
+              sell_status:
+                type: string
+                example: available
+              seller_id:
+                type: number
+                example: 5
+              stars:
+                type: string
+                example: 20%
+              state:
+                type: string
+                example: new
+              status:
+                type: string
+                example: active
+              status_inherited:
+                type: string
+                example: active
+              tag:
+                nullable: true
+                example: ~
+              title:
+                type: string
+                example: Смарт-часы Samsung Galaxy Watch 3 41mm Silver (SM-R850NZSASEK) (RFAR40N5YLE) - Уценка
+              title_mode:
+                nullable: true
+                example: ~
+              title_suffix:
+                type: string
+                nullable: true
+                example: ~
+              use_group_links:
+                nullable: true
+                example: ~
+    getChildrenResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            children:
+              type: array
+              items:
+                type: object
+                required:
+                  - id
+                  - count
+                  - name
+                  - title
+                  - count_children
+                  - parent_id
+                  - goods_count
+                properties:
+                  allow_index_three_parameters:
+                    type: boolean
+                    example: false
+                  attach:
+                    type: string
+                    example: "https://content1.rozetka.com.ua/goods/top/original/228454121.jpg"
+                  child_id:
+                    type: number
+                    example: 0
+                  count:
+                    type: integer
+                    example: 136
+                  count_children:
+                    type: number
+                    example: 0
+                  goods_count:
+                    type: integer
+                    example: 136
+                  goods_id:
+                    type: integer
+                    example: 330204607
+                  href:
+                    type: string
+                    example: "https://rozetka.com.ua/utsenennye-aksessuary/c101808/"
+                  id:
+                    type: integer
+                    example: 101808
+                  is_append_goods:
+                    type: boolean
+                    example: false
+                  is_rozetka_top:
+                    type: boolean
+                    example: true
+                  left_key:
+                    type: integer
+                    example: 3397
+                  level:
+                    type: number
+                    example: 2
+                  mpath:
+                    type: string
+                    example: ".83850."
+                  name:
+                    type: string
+                    example: utsenennye-aksessuary
+                  parent_id:
+                    type: integer
+                    example: 83850
+                  right_key:
+                    type: integer
+                    example: 3398
+                  rz_mpath:
+                    type: string
+                    example: ".83850.101808."
+                  status:
+                    type: string
+                    example: active
+                  title:
+                    type: string
+                    example: Уцененные аксессуары
+                  titles_mode:
+                    type: string
+                    example: inherited
+            current:
+              type: object
+              properties:
+                allow_index_three_parameters:
+                  type: boolean
+                  example: false
+                count:
+                  type: integer
+                  example: 1793
+                href:
+                  type: string
+                  example: "https://rozetka.com.ua/rasprodaja/c83850/"
+                id:
+                  type: integer
+                  example: 83850
+                is_rozetka_top:
+                  type: boolean
+                  example: false
+                left_key:
+                  type: integer
+                  example: 3358
+                level:
+                  type: integer
+                  example: 1
+                mpath:
+                  type: string
+                  example: "."
+                name:
+                  type: string
+                  example: rasprodaja
+                parent_id:
+                  type: integer
+                  example: 0
+                right_key:
+                  type: integer
+                  example: 3485
+                root_id:
+                  type: integer
+                  example: 83850
+                rz_mpath:
+                  type: string
+                  example: ".83850."
+                status:
+                  type: string
+                  example: active
+                subdomain:
+                  nullable: true
+                  example: ~
+                title:
+                  type: string
+                  example: Уцененные товары
+                titles_mode:
+                  type: string
+                  example: inherited
+            hasFilter:
+              type: boolean
+              example: false
+            is_need_street_id:
+              type: boolean
+              example: false
+            tile_config:
+              type: object
+              properties:
+                possible_templates:
+                  type: array
+                  items:
+                    type: string
+                    example: default
+                template:
+                  type: string
+                  example: default
+                template_view:
+                  type: string
+                  example: default
+    getProductsInCategoryResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            active_pages:
+              type: array
+              items:
+                type: number
+                example: 2
+            alternate:
+              type: array
+              items:
+                type: object
+                properties:
+                  domain:
+                    type: string
+                    example: com.ua
+                  hreflang:
+                    type: string
+                    example: uk
+                  lang:
+                    type: string
+                    example: ua
+                  subdomain:
+                    type: string
+                    example: ""
+            goods_in_category:
+              type: number
+              example: 136
+            goods_limit:
+              type: number
+              example: 60
+            goods_with_filter:
+              type: number
+              example: 136
+            ids:
+              type: array
+              items:
+                type: integer
+                example: 326459242
+            ids_count:
+              type: number
+              example: 136
+            show_next:
+              type: number
+              example: 16
+            shown_page:
+              type: number
+              example: 2
+            total_pages:
+              type: number
+              example: 3
+  responses:
+    Fuck:
+      description: getChildren
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getChildrenResponse'
+

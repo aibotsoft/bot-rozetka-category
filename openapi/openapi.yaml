@@ -6,11 +6,18 @@ info:
   contact: {}
 servers:
   - url: "https://xl-catalog-api.rozetka.com.ua"
+  - url: "https://rozetka.com.ua"
 paths:
+  /330094624/p330094624/:
+    get:
+      summary: productPage
+      description: productPage
+      operationId: productPage
+      responses:
+        200:
+          description: ""
   /v4/categories/getChildren:
     get:
-      tags:
-        - categories
       summary: getChildren
       description: getChildren
       operationId: getChildren
@@ -28,6 +35,43 @@ paths:
       responses:
         "200":
           description: getChildren
+          headers:
+            Access-Control-Expose-Headers:
+              schema:
+                type: string
+                example: "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page"
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Date:
+              schema:
+                type: string
+                example: "Mon, 20 Dec 2021 15:54:41 GMT"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=20
+            Server:
+              schema:
+                type: string
+                example: nginx
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding
+            domain:
+              schema:
+                type: string
+                example: catalog-api
           content:
             application/json:
               schema:
@@ -178,5 +222,2232 @@ paths:
                           template_view:
                             type: string
                             example: default
-tags:
-  - name: categories
+              examples:
+                getChildren:
+                  value:
+                    data:
+                      children:
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228454121.jpg"
+                          child_id: 0
+                          count: 136
+                          count_children: 0
+                          goods_count: 136
+                          goods_id: 330204607
+                          href: "https://rozetka.com.ua/utsenennye-aksessuary/c101808/"
+                          id: 101808
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3397
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-aksessuary
+                          parent_id: 83850
+                          right_key: 3398
+                          rz_mpath: ".83850.101808."
+                          status: active
+                          title: Уцененные аксессуары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228453711.jpg"
+                          child_id: 0
+                          count: 28
+                          count_children: 0
+                          goods_count: 28
+                          goods_id: 330204589
+                          href: "https://rozetka.com.ua/utsenennye-mobilnye-telefony/c83854/"
+                          id: 83854
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3361
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-mobilnye-telefony
+                          parent_id: 83850
+                          right_key: 3362
+                          rz_mpath: ".83850.83854."
+                          status: active
+                          title: Уцененные мобильные телефоны
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228453952.jpg"
+                          cat_id: 4630680
+                          child_id: 4630680
+                          count: 251
+                          count_children: 8
+                          goods_count: 0
+                          goods_id: 321097363
+                          href: "https://rozetka.com.ua/utsenennye-komplektuyuschie/c96632/"
+                          id: 96632
+                          is_append_goods: false
+                          is_rozetka_top: false
+                          left_key: 3369
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-komplektuyuschie
+                          parent_id: 83850
+                          right_key: 3394
+                          rz_mpath: ".83850.96632."
+                          status: active
+                          title: Уцененные комплектующие
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228454434.jpg"
+                          child_id: 0
+                          count: 4
+                          count_children: 0
+                          goods_count: 4
+                          goods_id: 327235156
+                          href: "https://rozetka.com.ua/utsenennye-fotoapparaty-i-videokamery/c108687/"
+                          id: 108687
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3401
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-fotoapparaty-i-videokamery
+                          parent_id: 83850
+                          right_key: 3402
+                          rz_mpath: ".83850.108687."
+                          status: active
+                          title: Уцененные фотоаппараты и видеокамеры
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455166.jpg"
+                          child_id: 0
+                          count: 183
+                          count_children: 0
+                          goods_count: 183
+                          goods_id: 330204601
+                          href: "https://bt.rozetka.com.ua/458520/c458520/"
+                          id: 458520
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3433
+                          level: 2
+                          mpath: ".83850."
+                          name: "458520"
+                          parent_id: 83850
+                          right_key: 3434
+                          rz_mpath: ".83850.458520."
+                          status: active
+                          title: Уцененная мелкая бытовая техника
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228455167.jpg"
+                          child_id: 0
+                          count: 93
+                          count_children: 0
+                          goods_count: 93
+                          goods_id: 327427033
+                          href: "https://bt.rozetka.com.ua/458525/c458525/"
+                          id: 458525
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3435
+                          level: 2
+                          mpath: ".83850."
+                          name: "458525"
+                          parent_id: 83850
+                          right_key: 3436
+                          rz_mpath: ".83850.458525."
+                          status: active
+                          title: Уцененная климатическая техника
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228455736.jpg"
+                          child_id: 0
+                          count: 8
+                          count_children: 0
+                          goods_count: 8
+                          goods_id: 327235174
+                          href: "https://rozetka.com.ua/utsenennie-planshety/c4626204/"
+                          id: 4626204
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3453
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennie-planshety
+                          parent_id: 83850
+                          right_key: 3454
+                          rz_mpath: ".83850.4626204."
+                          status: active
+                          title: Уцененные планшеты
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455164.jpg"
+                          child_id: 0
+                          count: 76
+                          count_children: 0
+                          goods_count: 76
+                          goods_id: 318879751
+                          href: "https://bt.rozetka.com.ua/458510/c458510/"
+                          id: 458510
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3429
+                          level: 2
+                          mpath: ".83850."
+                          name: "458510"
+                          parent_id: 83850
+                          right_key: 3430
+                          rz_mpath: ".83850.458510."
+                          status: active
+                          title: Уцененная крупная бытовая техника
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228453707.jpg"
+                          child_id: 0
+                          count: 77
+                          count_children: 0
+                          goods_count: 77
+                          goods_id: 330204625
+                          href: "https://rozetka.com.ua/utsenennye-noutbuki/c83853/"
+                          id: 83853
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3359
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-noutbuki
+                          parent_id: 83850
+                          right_key: 3360
+                          rz_mpath: ".83850.83853."
+                          status: active
+                          title: Уцененные ноутбуки
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228454848.jpg"
+                          child_id: 0
+                          count: 143
+                          count_children: 0
+                          goods_count: 143
+                          goods_id: 321272302
+                          href: "https://rozetka.com.ua/utsenennye-tovary-dlja-doma-sada/c170446/"
+                          id: 170446
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3419
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-tovary-dlja-doma-sada
+                          parent_id: 83850
+                          right_key: 3420
+                          rz_mpath: ".83850.170446."
+                          status: active
+                          title: "Уцененные товары для дома, сада"
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228453737.jpg"
+                          child_id: 0
+                          count: 85
+                          count_children: 0
+                          goods_count: 85
+                          goods_id: 318456199
+                          href: "https://rozetka.com.ua/utsenennye-televizory-i-monitory/c83976/"
+                          id: 83976
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3363
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-televizory-i-monitory
+                          parent_id: 83850
+                          right_key: 3364
+                          rz_mpath: ".83850.83976."
+                          status: active
+                          title: Уцененные телевизоры и мониторы
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228454755.jpg"
+                          child_id: 0
+                          count: 65
+                          count_children: 0
+                          goods_count: 65
+                          goods_id: 257057996
+                          href: "https://rozetka.com.ua/utsenennye-tovary-dlya-detey/c153198/"
+                          id: 153198
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3417
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-tovary-dlya-detey
+                          parent_id: 83850
+                          right_key: 3418
+                          rz_mpath: ".83850.153198."
+                          status: active
+                          title: Уцененные товары для детей
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228454283.jpg"
+                          child_id: 0
+                          count: 83
+                          count_children: 0
+                          goods_count: 83
+                          goods_id: 277697093
+                          href: "https://rozetka.com.ua/utsenennye-tovary-dlja-aktivnogo-otdyha/c103374/"
+                          id: 103374
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3399
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-tovary-dlja-aktivnogo-otdyha
+                          parent_id: 83850
+                          right_key: 3400
+                          rz_mpath: ".83850.103374."
+                          status: active
+                          title: Уцененные товары для активного отдыха
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455165.jpg"
+                          child_id: 0
+                          count: 26
+                          count_children: 0
+                          goods_count: 26
+                          goods_id: 328516708
+                          href: "https://bt.rozetka.com.ua/458515/c458515/"
+                          id: 458515
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3431
+                          level: 2
+                          mpath: ".83850."
+                          name: "458515"
+                          parent_id: 83850
+                          right_key: 3432
+                          rz_mpath: ".83850.458515."
+                          status: active
+                          title: Уцененная встраиваемая техника
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228453890.jpg"
+                          child_id: 0
+                          count: 10
+                          count_children: 0
+                          goods_count: 10
+                          goods_id: 323421550
+                          href: "https://rozetka.com.ua/utsenennye-printery-i-rashodnye-materialy/c88915/"
+                          id: 88915
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3365
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-printery-i-rashodnye-materialy
+                          parent_id: 83850
+                          right_key: 3366
+                          rz_mpath: ".83850.88915."
+                          status: active
+                          title: Уцененные принтеры и расходные материалы
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228453908.jpg"
+                          child_id: 0
+                          count: 23
+                          count_children: 0
+                          goods_count: 23
+                          goods_id: 329802703
+                          href: "https://rozetka.com.ua/utsenennye-avtotovary/c90547/"
+                          id: 90547
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3367
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-avtotovary
+                          parent_id: 83850
+                          right_key: 3368
+                          rz_mpath: ".83850.90547."
+                          status: active
+                          title: Уцененные автотовары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455171.jpg"
+                          child_id: 0
+                          count: 246
+                          count_children: 0
+                          goods_count: 246
+                          goods_id: 328060693
+                          href: "https://bt.rozetka.com.ua/458770/c458770/"
+                          id: 458770
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3441
+                          level: 2
+                          mpath: ".83850."
+                          name: "458770"
+                          parent_id: 83850
+                          right_key: 3442
+                          rz_mpath: ".83850.458770."
+                          status: active
+                          title: Уцененная сантехника
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455329.jpg"
+                          child_id: 0
+                          count: 176
+                          count_children: 0
+                          goods_count: 176
+                          goods_id: 323886154
+                          href: "https://rozetka.com.ua/utsenennaja-odejda-obuv-i-aksessuary/c1827182/"
+                          id: 1827182
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3443
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennaja-odejda-obuv-i-aksessuary
+                          parent_id: 83850
+                          right_key: 3444
+                          rz_mpath: ".83850.1827182."
+                          status: active
+                          title: "Уцененная одежда, обувь и аксессуары"
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228454685.jpg"
+                          child_id: 0
+                          count: 5
+                          count_children: 0
+                          goods_count: 5
+                          goods_id: 321683494
+                          href: "https://rozetka.com.ua/utsenennaya-ofisnaya-tehnika/c142204/"
+                          id: 142204
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3413
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennaya-ofisnaya-tehnika
+                          parent_id: 83850
+                          right_key: 3414
+                          rz_mpath: ".83850.142204."
+                          status: active
+                          title: Уцененная офисная техника
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228455695.jpg"
+                          child_id: 0
+                          count: 2
+                          count_children: 0
+                          goods_count: 2
+                          goods_id: 327427108
+                          href: "https://rozetka.com.ua/utsenennie-zootovary/c4625752/"
+                          id: 4625752
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3449
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennie-zootovary
+                          parent_id: 83850
+                          right_key: 3450
+                          rz_mpath: ".83850.4625752."
+                          status: active
+                          title: Уцененные зоотовары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228455170.jpg"
+                          child_id: 0
+                          count: 13
+                          count_children: 0
+                          goods_count: 13
+                          goods_id: 327427201
+                          href: "https://bt.rozetka.com.ua/458555/c458555/"
+                          id: 458555
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3439
+                          level: 2
+                          mpath: ".83850."
+                          name: "458555"
+                          parent_id: 83850
+                          right_key: 3440
+                          rz_mpath: ".83850.458555."
+                          status: active
+                          title: Уцененные товары для освещения
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228454849.png"
+                          child_id: 0
+                          count: 7
+                          count_children: 0
+                          goods_count: 7
+                          goods_id: 124545158
+                          href: "https://rozetka.com.ua/utsenennye-pk-i-nettopy/c173349/"
+                          id: 173349
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3421
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-pk-i-nettopy
+                          parent_id: 83850
+                          right_key: 3422
+                          rz_mpath: ".83850.173349."
+                          status: active
+                          title: Уцененные ПК и неттопы
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455601.jpg"
+                          child_id: 0
+                          count: 1
+                          count_children: 0
+                          goods_count: 1
+                          goods_id: 91149854
+                          href: "https://rozetka.com.ua/ucenennie-kanctovary/c4418335/"
+                          id: 4418335
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3447
+                          level: 2
+                          mpath: ".83850."
+                          name: ucenennie-kanctovary
+                          parent_id: 83850
+                          right_key: 3448
+                          rz_mpath: ".83850.4418335."
+                          status: active
+                          title: Уцененные канцтовары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228454520.jpg"
+                          child_id: 0
+                          count: 3
+                          count_children: 0
+                          goods_count: 3
+                          goods_id: 326863423
+                          href: "https://rozetka.com.ua/utsenennye-tovary-dlya-geymerov/c116474/"
+                          id: 116474
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3405
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-tovary-dlya-geymerov
+                          parent_id: 83850
+                          right_key: 3406
+                          rz_mpath: ".83850.116474."
+                          status: active
+                          title: Уцененные товары для геймеров
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228454712.jpg"
+                          child_id: 0
+                          count: 3
+                          count_children: 0
+                          goods_count: 3
+                          goods_id: 319905175
+                          href: "https://rozetka.com.ua/utsenennye-foto-i-videoaksessuary/c147919/"
+                          id: 147919
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3415
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-foto-i-videoaksessuary
+                          parent_id: 83850
+                          right_key: 3416
+                          rz_mpath: ".83850.147919."
+                          status: active
+                          title: Уцененные фото- и видеоаксессуары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228455138.jpg"
+                          child_id: 0
+                          count: 5
+                          count_children: 0
+                          goods_count: 5
+                          goods_id: 328145683
+                          href: "https://rozetka.com.ua/utsenennye-domashnie-kinoteatry-i-muzykalnye-tsentry/c375575/"
+                          id: 375575
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3427
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-domashnie-kinoteatry-i-muzykalnye-tsentry
+                          parent_id: 83850
+                          right_key: 3428
+                          rz_mpath: ".83850.375575."
+                          status: active
+                          title: Уцененные домашние кинотеатры и музыкальные центры
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228455127.jpg"
+                          child_id: 0
+                          count: 9
+                          count_children: 0
+                          goods_count: 9
+                          goods_id: 327892462
+                          href: "https://rozetka.com.ua/utsenennye-muzykalnye-instrumenty/c344290/"
+                          id: 344290
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3425
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-muzykalnye-instrumenty
+                          parent_id: 83850
+                          right_key: 3426
+                          rz_mpath: ".83850.344290."
+                          status: active
+                          title: Уцененные музыкальные инструменты
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228456160.png"
+                          child_id: 0
+                          count: 4
+                          count_children: 0
+                          goods_count: 4
+                          goods_id: 330094720
+                          href: "https://rozetka.com.ua/utsenennie-novogodnie-tovari/c4630512/"
+                          id: 4630512
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3463
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennie-novogodnie-tovari
+                          parent_id: 83850
+                          right_key: 3464
+                          rz_mpath: ".83850.4630512."
+                          status: active
+                          title: Уцененные новогодние товары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228455712.jpg"
+                          child_id: 0
+                          count: 1
+                          count_children: 0
+                          goods_count: 1
+                          goods_id: 328060726
+                          href: "https://bt.rozetka.com.ua/4625968/c4625968/"
+                          id: 4625968
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3451
+                          level: 2
+                          mpath: ".83850."
+                          name: "4625968"
+                          parent_id: 83850
+                          right_key: 3452
+                          rz_mpath: ".83850.4625968."
+                          status: active
+                          title: Уцененные сейфы
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228455954.jpg"
+                          child_id: 0
+                          count: 4
+                          count_children: 0
+                          goods_count: 4
+                          goods_id: 328248892
+                          href: "https://bt.rozetka.com.ua/4628131/c4628131/"
+                          id: 4628131
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3455
+                          level: 2
+                          mpath: ".83850."
+                          name: "4628131"
+                          parent_id: 83850
+                          right_key: 3456
+                          rz_mpath: ".83850.4628131."
+                          status: active
+                          title: Уцененные часы
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228454858.jpg"
+                          child_id: 0
+                          count: 6
+                          count_children: 0
+                          goods_count: 6
+                          goods_id: 322674574
+                          href: "https://rozetka.com.ua/utsenennye-proektory-i-aksessuary/c182837/"
+                          id: 182837
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3423
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-proektory-i-aksessuary
+                          parent_id: 83850
+                          right_key: 3424
+                          rz_mpath: ".83850.182837."
+                          status: active
+                          title: Уцененные проекторы и аксессуары
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228454021.jpg"
+                          child_id: 0
+                          count: 1
+                          count_children: 0
+                          goods_count: 1
+                          goods_id: 329434789
+                          href: "https://rozetka.com.ua/utsenennye-diktofony/c99158/"
+                          id: 99158
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3395
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennye-diktofony
+                          parent_id: 83850
+                          right_key: 3396
+                          rz_mpath: ".83850.99158."
+                          status: active
+                          title: Уцененные диктофоны
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/top/original/228455168.jpg"
+                          child_id: 0
+                          count: 5
+                          count_children: 0
+                          goods_count: 5
+                          goods_id: 305845003
+                          href: "https://bt.rozetka.com.ua/458535/c458535/"
+                          id: 458535
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3437
+                          level: 2
+                          mpath: ".83850."
+                          name: "458535"
+                          parent_id: 83850
+                          right_key: 3438
+                          rz_mpath: ".83850.458535."
+                          status: active
+                          title: Уцененная посуда для кухни
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/top/original/228456159.jpg"
+                          child_id: 0
+                          count: 2
+                          count_children: 0
+                          goods_count: 2
+                          goods_id: 294546178
+                          href: "https://rozetka.com.ua/utsenennoe-servernoe-oborudovanie/c4630506/"
+                          id: 4630506
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3461
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennoe-servernoe-oborudovanie
+                          parent_id: 83850
+                          right_key: 3462
+                          rz_mpath: ".83850.4630506."
+                          status: active
+                          title: Уцененное серверное оборудование
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content.rozetka.com.ua/goods/images/big_tile/240614487.jpg"
+                          child_id: 0
+                          count: 1
+                          count_children: 0
+                          goods_count: 1
+                          goods_id: 328647271
+                          href: "https://rozetka.com.ua/utsenennie-graficheskie-plansheti/c4630674/"
+                          id: 4630674
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3465
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennie-graficheskie-plansheti
+                          parent_id: 83850
+                          right_key: 3466
+                          rz_mpath: ".83850.4630674."
+                          status: active
+                          title: Уцененные графические планшеты
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content1.rozetka.com.ua/goods/top/original/228456184.jpg"
+                          child_id: 0
+                          count: 7
+                          count_children: 0
+                          goods_count: 7
+                          goods_id: 310027093
+                          href: "https://rozetka.com.ua/utsenennoe-torgovoe-oborudovanie/c4631235/"
+                          id: 4631235
+                          is_append_goods: false
+                          is_rozetka_top: true
+                          left_key: 3467
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennoe-torgovoe-oborudovanie
+                          parent_id: 83850
+                          right_key: 3468
+                          rz_mpath: ".83850.4631235."
+                          status: active
+                          title: Уцененное торговое оборудование
+                          titles_mode: inherited
+                        - allow_index_three_parameters: false
+                          attach: "https://content2.rozetka.com.ua/goods/images/big_tile/241297141.jpg"
+                          child_id: 0
+                          count: 1
+                          count_children: 0
+                          goods_count: 1
+                          goods_id: 329010490
+                          href: "https://rozetka.com.ua/utsenennie-tovari-meditsinskogo-naznacheniya/c4672523/"
+                          id: 4672523
+                          is_append_goods: false
+                          is_rozetka_top: false
+                          left_key: 3481
+                          level: 2
+                          mpath: ".83850."
+                          name: utsenennie-tovari-meditsinskogo-naznacheniya
+                          parent_id: 83850
+                          right_key: 3482
+                          rz_mpath: ".83850.4672523."
+                          status: active
+                          title: Уцененные товары медицинского назначения
+                          titles_mode: inherited
+                      current:
+                        allow_index_three_parameters: false
+                        count: 1793
+                        href: "https://rozetka.com.ua/rasprodaja/c83850/"
+                        id: 83850
+                        is_rozetka_top: false
+                        left_key: 3358
+                        level: 1
+                        mpath: "."
+                        name: rasprodaja
+                        parent_id: 0
+                        right_key: 3485
+                        root_id: 83850
+                        rz_mpath: ".83850."
+                        status: active
+                        subdomain: ~
+                        title: Уцененные товары
+                        titles_mode: inherited
+                      hasFilter: false
+                      is_need_street_id: false
+                      tile_config:
+                        possible_templates:
+                          - default
+                          - wide
+                        template: default
+                        template_view: default
+  /v4/goods/get:
+    get:
+      summary: getProductsInCategory
+      description: getProductsInCategory
+      operationId: getProductsInCategory
+      parameters:
+        - name: category_id
+          in: query
+          schema:
+            type: string
+            example: "101808"
+        - name: page
+          in: query
+          schema:
+            type: string
+            example: "2"
+      responses:
+        "200":
+          description: getProductsInCategory
+          headers:
+            Access-Control-Expose-Headers:
+              schema:
+                type: string
+                example: "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page"
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Date:
+              schema:
+                type: string
+                example: "Mon, 20 Dec 2021 15:54:20 GMT"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=20
+            Server:
+              schema:
+                type: string
+                example: nginx
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding
+            domain:
+              schema:
+                type: string
+                example: catalog-api
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      active_pages:
+                        type: array
+                        items:
+                          type: number
+                          example: 2
+                      alternate:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            domain:
+                              type: string
+                              example: com.ua
+                            hreflang:
+                              type: string
+                              example: uk
+                            lang:
+                              type: string
+                              example: ua
+                            subdomain:
+                              type: string
+                              example: ""
+                      goods_in_category:
+                        type: number
+                        example: 136
+                      goods_limit:
+                        type: number
+                        example: 60
+                      goods_with_filter:
+                        type: number
+                        example: 136
+                      ids:
+                        type: array
+                        items:
+                          type: number
+                          example: 326459242
+                      ids_count:
+                        type: number
+                        example: 136
+                      show_next:
+                        type: number
+                        example: 16
+                      shown_page:
+                        type: number
+                        example: 2
+                      total_pages:
+                        type: number
+                        example: 3
+              examples:
+                getProductsInCategory:
+                  value:
+                    data:
+                      active_pages:
+                        - 2
+                      alternate:
+                        - domain: com.ua
+                          hreflang: uk
+                          lang: ua
+                          subdomain: ""
+                        - domain: com.ua
+                          hreflang: ru
+                          lang: ""
+                          subdomain: ""
+                      goods_in_category: 136
+                      goods_limit: 60
+                      goods_with_filter: 136
+                      ids:
+                        - 326459242
+                        - 328248937
+                        - 329802847
+                        - 325750456
+                        - 280132278
+                        - 329246656
+                        - 329802850
+                        - 327612664
+                        - 321272455
+                        - 328891735
+                        - 321368461
+                        - 327427249
+                        - 328508086
+                        - 329627131
+                        - 326050714
+                        - 327355645
+                        - 297936343
+                        - 328313218
+                        - 329802760
+                        - 328508104
+                        - 326459215
+                        - 328669075
+                        - 329246530
+                        - 316268767
+                        - 305033423
+                        - 313674928
+                        - 329627128
+                        - 329802811
+                        - 327099214
+                        - 327549328
+                        - 329627140
+                        - 329626867
+                        - 328647283
+                        - 329246590
+                        - 329802670
+                        - 318879880
+                        - 326353354
+                        - 329246680
+                        - 328516561
+                        - 328669003
+                        - 328516489
+                        - 329767792
+                        - 329627074
+                        - 328313227
+                        - 328313200
+                        - 327677254
+                        - 285229563
+                        - 80232981
+                        - 328981531
+                        - 321097144
+                        - 291784498
+                        - 329246647
+                        - 327765064
+                        - 328891708
+                        - 327549361
+                        - 329802769
+                        - 325182997
+                        - 320531755
+                        - 327765061
+                        - 327765055
+                      ids_count: 136
+                      show_next: 16
+                      shown_page: 2
+                      total_pages: 3
+  /v4/goods/getDetails:
+    get:
+      summary: getProductDetails
+      description: getProductDetails
+      operationId: getProductDetails
+      parameters:
+        - name: lang
+          in: query
+          schema:
+            type: string
+            example: ru
+        - name: with_groups
+          in: query
+          schema:
+            type: string
+            example: "1"
+        - name: product_ids
+          in: query
+          schema:
+            type: string
+            example: "330204580"
+      responses:
+        "200":
+          description: getProductDetails
+          headers:
+            Access-Control-Expose-Headers:
+              schema:
+                type: string
+                example: "X-Pagination-Total-Count, X-Pagination-Page-Count, X-Pagination-Current-Page, X-Pagination-Per-Page"
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Date:
+              schema:
+                type: string
+                example: "Tue, 21 Dec 2021 09:07:33 GMT"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=20
+            Server:
+              schema:
+                type: string
+                example: nginx
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding
+            domain:
+              schema:
+                type: string
+                example: catalog-api
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        brand:
+                          type: string
+                          example: Samsung
+                        brand_id:
+                          type: number
+                          example: 12
+                        category_id:
+                          type: number
+                          example: 101808
+                        comments_amount:
+                          type: number
+                          example: 1
+                        comments_mark:
+                          type: number
+                          example: 1
+                        config:
+                          type: object
+                          properties:
+                            bonus:
+                              type: boolean
+                              example: true
+                            brand:
+                              type: boolean
+                              example: false
+                            buy_button:
+                              type: boolean
+                              example: true
+                            compare_button:
+                              type: boolean
+                              example: true
+                            description:
+                              type: boolean
+                              example: true
+                            gift:
+                              type: boolean
+                              example: true
+                            image:
+                              type: boolean
+                              example: true
+                            old_price:
+                              type: boolean
+                              example: true
+                            pictograms:
+                              type: boolean
+                              example: true
+                            price:
+                              type: boolean
+                              example: true
+                            promo_price:
+                              type: boolean
+                              example: true
+                            rating:
+                              type: boolean
+                              example: true
+                            status:
+                              type: boolean
+                              example: true
+                            tags:
+                              type: boolean
+                              example: true
+                            title:
+                              type: boolean
+                              example: true
+                            variables:
+                              type: boolean
+                              example: true
+                            wishlist_button:
+                              type: boolean
+                              example: true
+                        discount:
+                          type: number
+                          example: 0
+                        dispatch:
+                          type: number
+                          example: 1
+                        docket:
+                          type: string
+                          example: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Повреждена упаковка</span>"
+                        gift:
+                          nullable: true
+                          example: ~
+                        group_id:
+                          type: number
+                          example: 0
+                        group_name:
+                          nullable: true
+                          example: ~
+                        group_title:
+                          nullable: true
+                          example: ~
+                        groups:
+                          type: array
+                          items: {}
+                        href:
+                          type: string
+                          example: "https://rozetka.com.ua/329767798/p329767798/"
+                        id:
+                          type: number
+                          example: 329767798
+                        image_main:
+                          type: string
+                          example: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                        images:
+                          type: object
+                          properties:
+                            all_images:
+                              type: array
+                              items:
+                                type: string
+                                example: "https://content2.rozetka.com.ua/goods/images/original/242655481.jpg"
+                            hover:
+                              type: string
+                              example: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                            main:
+                              type: string
+                              example: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                            preview:
+                              type: string
+                              example: "https://content2.rozetka.com.ua/goods/images/preview/242655481.jpg"
+                        is_group_primary:
+                          type: number
+                          example: 0
+                        is_need_street_id:
+                          type: boolean
+                          example: false
+                        merchant_id:
+                          type: number
+                          example: 2
+                        mpath:
+                          type: string
+                          example: ".83850.101808."
+                        old_price:
+                          type: number
+                          example: 0
+                        parent_category_id:
+                          type: number
+                          example: 83850
+                        pictograms:
+                          type: array
+                          nullable: true
+                          example: ~
+                        pl_bonus_charge_pcs:
+                          type: number
+                          example: 0
+                        pl_use_instant_bonus:
+                          type: number
+                          example: 0
+                        premium:
+                          type: number
+                          example: 0
+                        preorder:
+                          type: number
+                          example: 0
+                        price:
+                          type: number
+                          example: 5103
+                        price_pcs:
+                          type: string
+                          example: "186.24"
+                        primary_good_title:
+                          nullable: true
+                          example: ~
+                        sell_status:
+                          type: string
+                          example: available
+                        seller_id:
+                          type: number
+                          example: 5
+                        stars:
+                          type: string
+                          example: 20%
+                        state:
+                          type: string
+                          example: new
+                        status:
+                          type: string
+                          example: active
+                        status_inherited:
+                          type: string
+                          example: active
+                        tag:
+                          nullable: true
+                          example: ~
+                        title:
+                          type: string
+                          example: Смарт-часы Samsung Galaxy Watch 3 41mm Silver (SM-R850NZSASEK) (RFAR40N5YLE) - Уценка
+                        title_mode:
+                          nullable: true
+                          example: ~
+                        title_suffix:
+                          type: string
+                          nullable: true
+                          example: ~
+                        use_group_links:
+                          nullable: true
+                          example: ~
+              examples:
+                getProductDetails:
+                  value:
+                    data:
+                      - brand: Samsung
+                        brand_id: 12
+                        category_id: 101808
+                        comments_amount: 1
+                        comments_mark: 1
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Повреждена упаковка</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/329767798/p329767798/"
+                        id: 329767798
+                        image_main: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                        images:
+                          all_images:
+                            - "https://content2.rozetka.com.ua/goods/images/original/242655481.jpg"
+                          hover: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                          main: "https://content2.rozetka.com.ua/goods/images/big_tile/242655481.jpg"
+                          preview: "https://content2.rozetka.com.ua/goods/images/preview/242655481.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 5103
+                        price_pcs: "186.24"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 20%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Смарт-часы Samsung Galaxy Watch 3 41mm Silver (SM-R850NZSASEK) (RFAR40N5YLE) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Logitech
+                        brand_id: 42
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Повреждена упаковка</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/326531605/p326531605/"
+                        id: 326531605
+                        image_main: "https://content1.rozetka.com.ua/goods/images/big_tile/236848536.jpg"
+                        images:
+                          all_images:
+                            - "https://content1.rozetka.com.ua/goods/images/original/236848536.jpg"
+                          hover: "https://content1.rozetka.com.ua/goods/images/big_tile/236848536.jpg"
+                          main: "https://content1.rozetka.com.ua/goods/images/big_tile/236848536.jpg"
+                          preview: "https://content1.rozetka.com.ua/goods/images/preview/236848536.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms:
+                          - announce: ~
+                            description: ~
+                            goods_id: 326531605
+                            has_description: 1
+                            icon_mobile: ""
+                            id: 29278
+                            image_url: "https://content.rozetka.com.ua/goods_tags/images/original/187292014.png"
+                            is_auction: false
+                            order: 16777215
+                            title: PickUp Сервис
+                            url: ~
+                            url_title: ~
+                            view_position: ~
+                            view_type: in_central_block
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 6369
+                        price_pcs: "232.45"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Клавиатура беспроводная Logitech G915 Gaming Wireless Mechanical GL Tactile RGB (920-008909) (2051MR004BF9) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Sony
+                        brand_id: 39
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Царапины на кейсе</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/328248790/p328248790/"
+                        id: 328248790
+                        image_main: "https://content1.rozetka.com.ua/goods/images/big_tile/240183780.jpg"
+                        images:
+                          all_images:
+                            - "https://content1.rozetka.com.ua/goods/images/original/240183780.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/240183783.jpg"
+                            - "https://content.rozetka.com.ua/goods/images/original/240183785.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/240183787.jpg"
+                          hover: "https://content1.rozetka.com.ua/goods/images/big_tile/240183783.jpg"
+                          main: "https://content1.rozetka.com.ua/goods/images/big_tile/240183780.jpg"
+                          preview: "https://content1.rozetka.com.ua/goods/images/preview/240183780.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 3145
+                        price_pcs: "114.78"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Наушники Sony WF-1000XM3 Black (WF1000XM3B.E) (S018431095G) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Amico
+                        brand_id: 520045
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Мелкие царапины на дисплее</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/284418833/p284418833/"
+                        id: 284418833
+                        image_main: "https://content2.rozetka.com.ua/goods/images/big_tile/165705945.jpg"
+                        images:
+                          all_images:
+                            - "https://content2.rozetka.com.ua/goods/images/original/165705945.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/165719711.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/165719712.jpg"
+                          hover: "https://content2.rozetka.com.ua/goods/images/big_tile/165719711.jpg"
+                          main: "https://content2.rozetka.com.ua/goods/images/big_tile/165705945.jpg"
+                          preview: "https://content2.rozetka.com.ua/goods/images/preview/165705945.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 719
+                        price_pcs: "26.24"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Фитнес-браслет Amico Go Run Thermometer Pulseoximeter ad Tonometer Black (afbgorb) (EJ745431) - Уценка
+                        title_mode: ~
+                        title_suffix: ""
+                        use_group_links: ~
+                      - brand: Samsung
+                        brand_id: 12
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Потертости на тыльной поверхности корпуса</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/329802826/p329802826/"
+                        id: 329802826
+                        image_main: "https://content.rozetka.com.ua/goods/images/big_tile/243043714.jpg"
+                        images:
+                          all_images:
+                            - "https://content.rozetka.com.ua/goods/images/original/243043714.jpg"
+                            - "https://content.rozetka.com.ua/goods/images/original/243043715.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/243043716.jpg"
+                          hover: "https://content.rozetka.com.ua/goods/images/big_tile/243043715.jpg"
+                          main: "https://content.rozetka.com.ua/goods/images/big_tile/243043714.jpg"
+                          preview: "https://content.rozetka.com.ua/goods/images/preview/243043714.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 6624
+                        price_pcs: "241.75"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Смарт-часы Samsung Galaxy Watch 4 44mm Green (SM-R870NZGASEK) (RFAR90454BV) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Samsung
+                        brand_id: 12
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Царапины на тыльной поверхности корпуса</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/326997655/p326997655/"
+                        id: 326997655
+                        image_main: "https://content.rozetka.com.ua/goods/images/big_tile/237587736.jpg"
+                        images:
+                          all_images:
+                            - "https://content.rozetka.com.ua/goods/images/original/237587736.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/237628655.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/237628656.jpg"
+                          hover: "https://content1.rozetka.com.ua/goods/images/big_tile/237628655.jpg"
+                          main: "https://content.rozetka.com.ua/goods/images/big_tile/237587736.jpg"
+                          preview: "https://content.rozetka.com.ua/goods/images/preview/237587736.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 9668
+                        price_pcs: "352.85"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Смарт-часы Samsung Galaxy Watch 4 Classic 46mm eSIM Black (SM-R895FZKASEK) (359483531477425) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Apple
+                        brand_id: 69
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Точечный скол на кейсе</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/330204571/p330204571/"
+                        id: 330204571
+                        image_main: "https://content2.rozetka.com.ua/goods/images/big_tile/243422020.jpg"
+                        images:
+                          all_images:
+                            - "https://content2.rozetka.com.ua/goods/images/original/243422020.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/243428510.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/243428511.jpg"
+                          hover: "https://content1.rozetka.com.ua/goods/images/big_tile/243428510.jpg"
+                          main: "https://content2.rozetka.com.ua/goods/images/big_tile/243422020.jpg"
+                          preview: "https://content2.rozetka.com.ua/goods/images/preview/243422020.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms:
+                          - announce: ~
+                            description: ~
+                            goods_id: 330204571
+                            has_description: 1
+                            icon_mobile: ""
+                            id: 29393
+                            image_url: "https://content2.rozetka.com.ua/goods_tags/images/original/187292106.png"
+                            is_auction: false
+                            order: 1
+                            title: Authorized Reseller
+                            url: ~
+                            url_title: ~
+                            view_position: ~
+                            view_type: in_central_block
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 6978
+                        price_pcs: "254.67"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Наушники Apple AirPods Pro (MWP22) (SGX7G28TR0C6L) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Samsung
+                        brand_id: 12
+                        category_id: 101808
+                        comments_amount: 1
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Потертости на торце корпуса. Повреждена упаковка</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/297255393/p297255393/"
+                        id: 297255393
+                        image_main: "https://content1.rozetka.com.ua/goods/images/big_tile/178139875.jpg"
+                        images:
+                          all_images:
+                            - "https://content1.rozetka.com.ua/goods/images/original/178139875.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/178252236.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/178252370.jpg"
+                          hover: "https://content2.rozetka.com.ua/goods/images/big_tile/178252236.jpg"
+                          main: "https://content1.rozetka.com.ua/goods/images/big_tile/178139875.jpg"
+                          preview: "https://content1.rozetka.com.ua/goods/images/preview/178139875.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 5289
+                        price_pcs: "193.03"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Смарт-часы Samsung Galaxy Watch 42mm Rose Gold (SM-R810NZDASEK) (R5AKA03BLMA) - Уценка
+                        title_mode: ~
+                        title_suffix: ""
+                        use_group_links: ~
+                      - brand: Apple
+                        brand_id: 69
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Потертости на корпусе. Устройство активировано. Предполагаемая дата окончания срока действия ограниченной гарантии Apple: 29 апреля 2022 г.</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/327892267/p327892267/"
+                        id: 327892267
+                        image_main: "https://content1.rozetka.com.ua/goods/images/big_tile/239432506.jpg"
+                        images:
+                          all_images:
+                            - "https://content1.rozetka.com.ua/goods/images/original/239432506.jpg"
+                            - "https://content.rozetka.com.ua/goods/images/original/239432507.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/239432508.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/239432509.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/239432510.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/239432511.jpg"
+                          hover: "https://content.rozetka.com.ua/goods/images/big_tile/239432507.jpg"
+                          main: "https://content1.rozetka.com.ua/goods/images/big_tile/239432506.jpg"
+                          preview: "https://content1.rozetka.com.ua/goods/images/preview/239432506.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms:
+                          - announce: ~
+                            description: ~
+                            goods_id: 327892267
+                            has_description: 1
+                            icon_mobile: ""
+                            id: 29393
+                            image_url: "https://content2.rozetka.com.ua/goods_tags/images/original/187292106.png"
+                            is_auction: false
+                            order: 1
+                            title: Authorized Reseller
+                            url: ~
+                            url_title: ~
+                            view_position: ~
+                            view_type: in_central_block
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 6512
+                        price_pcs: "237.66"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Наушники Apple AirPods Pro (MWP22) (SGX8DMHF40C6L) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Krazi
+                        brand_id: 374624
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Повреждена упаковка</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/328040908/p328040908/"
+                        id: 328040908
+                        image_main: "https://content1.rozetka.com.ua/goods/images/big_tile/239636821.jpg"
+                        images:
+                          all_images:
+                            - "https://content1.rozetka.com.ua/goods/images/original/239636821.jpg"
+                          hover: "https://content1.rozetka.com.ua/goods/images/big_tile/239636821.jpg"
+                          main: "https://content1.rozetka.com.ua/goods/images/big_tile/239636821.jpg"
+                          preview: "https://content1.rozetka.com.ua/goods/images/preview/239636821.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 169
+                        price_pcs: "6.17"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Панель Krazi Full Soft Case для Apple iPhone 11 Pro Max Papaya (2099900805974) (A00002XNK) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Bang & Olufsen
+                        brand_id: 128020
+                        category_id: 101808
+                        comments_amount: 2
+                        comments_mark: 3
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Незначительно поврежден материал на лицевой стороне корпуса. Повреждена упаковка</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/299829113/p299829113/"
+                        id: 299829113
+                        image_main: "https://content2.rozetka.com.ua/goods/images/big_tile/181048932.jpg"
+                        images:
+                          all_images:
+                            - "https://content2.rozetka.com.ua/goods/images/original/181048932.jpg"
+                            - "https://content.rozetka.com.ua/goods/images/original/181210449.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/181210472.jpg"
+                          hover: "https://content.rozetka.com.ua/goods/images/big_tile/181210449.jpg"
+                          main: "https://content2.rozetka.com.ua/goods/images/big_tile/181048932.jpg"
+                          preview: "https://content2.rozetka.com.ua/goods/images/preview/181048932.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 56539
+                        price_pcs: "2063.47"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 60%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: "Акустическая система Bang & Olufsen BeoPlay A9 White, incl. front cover, maple legs (2890-19) (EP380785) - Уценка"
+                        title_mode: ~
+                        title_suffix: ""
+                        use_group_links: ~
+                      - brand: RZTK
+                        brand_id: 568501
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Потертости на корпусе</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/328313257/p328313257/"
+                        id: 328313257
+                        image_main: "https://content2.rozetka.com.ua/goods/images/big_tile/240102629.jpg"
+                        images:
+                          all_images:
+                            - "https://content2.rozetka.com.ua/goods/images/original/240102629.jpg"
+                            - "https://content.rozetka.com.ua/goods/images/original/240126664.jpg"
+                            - "https://content.rozetka.com.ua/goods/images/original/240126665.jpg"
+                          hover: "https://content.rozetka.com.ua/goods/images/big_tile/240126664.jpg"
+                          main: "https://content2.rozetka.com.ua/goods/images/big_tile/240102629.jpg"
+                          preview: "https://content2.rozetka.com.ua/goods/images/preview/240102629.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms:
+                          - announce: ~
+                            description: ~
+                            goods_id: 328313257
+                            has_description: 1
+                            icon_mobile: ""
+                            id: 28386
+                            image_url: "https://content1.rozetka.com.ua/goods_tags/images/original/187291957.png"
+                            is_auction: true
+                            order: 10
+                            title: Собственная марка ROZETKA
+                            url: ~
+                            url_title: ~
+                            view_position: 2
+                            view_type: dominate_price_tag
+                          - announce: ~
+                            description: ~
+                            goods_id: 328313257
+                            has_description: 0
+                            icon_mobile: ""
+                            id: 29208
+                            image_url: "https://content2.rozetka.com.ua/goods_tags/images/original/187291996.png"
+                            is_auction: true
+                            order: 1000
+                            title: Гарантия 14 дней от ROZETKA
+                            url: ~
+                            url_title: ~
+                            view_position: 1
+                            view_type: in_central_block
+                          - announce: ~
+                            description: ~
+                            goods_id: 328313257
+                            has_description: 0
+                            icon_mobile: ""
+                            id: 29223
+                            image_url: "https://content1.rozetka.com.ua/goods_tags/images/original/187291999.png"
+                            is_auction: false
+                            order: 16777215
+                            title: Гарантия 14 дней
+                            url: ~
+                            url_title: ~
+                            view_position: ~
+                            view_type: in_central_block
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 679
+                        price_pcs: "24.78"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Веб-камера RZTK 2K PRO WB 300 (EP201347) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+                      - brand: Amico
+                        brand_id: 520045
+                        category_id: 101808
+                        comments_amount: 0
+                        comments_mark: 0
+                        config:
+                          bonus: true
+                          brand: false
+                          buy_button: true
+                          compare_button: true
+                          description: true
+                          gift: true
+                          image: true
+                          old_price: true
+                          pictograms: true
+                          price: true
+                          promo_price: true
+                          rating: true
+                          status: true
+                          tags: true
+                          title: true
+                          variables: true
+                          wishlist_button: true
+                        discount: 0
+                        dispatch: 1
+                        docket: "<span style=\"font-weight:bold;color:rgb(255,0,0);\">Потертости на корпусе. Повреждена упаковка</span>"
+                        gift: ~
+                        group_id: 0
+                        group_name: ~
+                        group_title: ~
+                        groups: []
+                        href: "https://rozetka.com.ua/324196291/p324196291/"
+                        id: 324196291
+                        image_main: "https://content1.rozetka.com.ua/goods/images/big_tile/232477798.jpg"
+                        images:
+                          all_images:
+                            - "https://content1.rozetka.com.ua/goods/images/original/232477798.jpg"
+                            - "https://content1.rozetka.com.ua/goods/images/original/232515911.jpg"
+                            - "https://content2.rozetka.com.ua/goods/images/original/232515915.jpg"
+                          hover: "https://content1.rozetka.com.ua/goods/images/big_tile/232515911.jpg"
+                          main: "https://content1.rozetka.com.ua/goods/images/big_tile/232477798.jpg"
+                          preview: "https://content1.rozetka.com.ua/goods/images/preview/232477798.jpg"
+                        is_group_primary: 0
+                        is_need_street_id: false
+                        merchant_id: 2
+                        mpath: ".83850.101808."
+                        old_price: 0
+                        parent_category_id: 83850
+                        pictograms: ~
+                        pl_bonus_charge_pcs: 0
+                        pl_use_instant_bonus: 0
+                        premium: 0
+                        preorder: 0
+                        price: 719
+                        price_pcs: "26.24"
+                        primary_good_title: ~
+                        sell_status: available
+                        seller_id: 5
+                        stars: 0%
+                        state: new
+                        status: active
+                        status_inherited: active
+                        tag: ~
+                        title: Cмарт-часы Amico Go Fun Pulseoximeter and Tonometer Pink (swgofunp) (FY638636) - Уценка
+                        title_mode: ~
+                        title_suffix: ~
+                        use_group_links: ~
+tags: []
