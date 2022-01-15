@@ -2,7 +2,8 @@ name: build
 
 on:
   push:
-    branches: [ master ]
+    tags:
+      - '*.*.*'
 
 jobs:
   build:
@@ -26,6 +27,9 @@ jobs:
       - name: Prepare
         id: prep
         run: |
+          echo RELEASE_VERSION: $RELEASE_VERSION
+          echo ${{github.ref_name}}
+          echo ${{ env.RELEASE_VERSION }}
           VERSION=sha-${GITHUB_SHA::8}
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF/refs\/tags\//}
