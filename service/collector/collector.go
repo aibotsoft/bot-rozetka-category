@@ -20,7 +20,7 @@ import (
 const maxNumPages = 10
 const categoryPeriod = 10 * time.Minute
 const CollectOriginProductsPeriod = 3 * time.Minute
-const collectPagePeriod = 30 * time.Second
+const collectPagePeriod = 10 * time.Second
 const maxProductChunkSize = 1200
 const NoOriginID = 0
 const tmpl = `
