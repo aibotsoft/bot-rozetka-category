@@ -84,7 +84,7 @@ func (c *Collector) CollectCategories() error {
 	if err != nil {
 		return err
 	}
-	c.log.Debug("CollectCategories", zap.Int("len", len(categories)), zap.Duration("elapsed", time.Since(start)))
+	c.log.Info("CollectCategories", zap.Int("len", len(categories)), zap.Duration("elapsed", time.Since(start)))
 	return nil
 }
 
@@ -114,7 +114,7 @@ func (c *Collector) CollectOriginProducts() error {
 		c.log.Warn("SaveOriginProducts_error", zap.Error(err), zap.Int("chunk_size", len(ids)))
 		return err
 	}
-	c.log.Debug("CollectOriginProducts",
+	c.log.Info("CollectOriginProducts",
 		zap.Int("count", len(ids)),
 		zap.Int64s("list", ids),
 		zap.Duration("elapsed", time.Since(start)),
@@ -172,7 +172,7 @@ func (c *Collector) CollectSaleProducts() error {
 	for i := 0; i < len(multiList); i++ {
 		c.newProductCh <- i
 	}
-	c.log.Debug("CollectSaleProducts",
+	c.log.Info("CollectSaleProducts",
 		zap.Int("count", len(multiList)),
 		zap.Int64s("list", multiList),
 		zap.Duration("elapsed", time.Since(start)),
@@ -213,7 +213,7 @@ func (c *Collector) CollectOriginID() error {
 	if err != nil {
 		return fmt.Errorf("UpdateOriginID_error: %w", err)
 	}
-	c.log.Debug("CollectOriginID",
+	c.log.Info("CollectOriginID",
 		zap.String("title", product.Title),
 		zap.Int64p("origin_id", product.OriginID),
 		zap.Duration("elapsed", time.Since(start)),
