@@ -60,6 +60,6 @@ func TestMain(m *testing.M) {
 //}
 
 func TestCollector_CollectOriginProducts(t *testing.T) {
-	err := c.Notify()
+	err := c.CollectOriginID()
 	assert.NoError(t, err)
 }

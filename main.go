@@ -28,6 +28,10 @@ func main() {
 	if err != nil {
 		log.Panic("new_store_error", zap.Error(err))
 	}
+	err = sto.Migrate()
+	if err != nil {
+		log.Panic("store_migrate_error", zap.Error(err))
+	}
 	ctx, cancel := context.WithCancel(context.Background())
 
 	tg, err := bot.NewBot(log, cfg, ctx, sto)

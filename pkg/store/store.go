@@ -7,6 +7,9 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
+	"gorm.io/gorm/logger"
+	"log"
+	"os"
 	"time"
 )
 
@@ -90,19 +93,32 @@ type User struct {
 	Rating       float64
 }
 
-func NewStore(log *zap.Logger, cfg *config.Config) (*Store, error) {
-	db, err := gorm.Open(postgres.Open(cfg.PostgresDSN), &gorm.Config{})
+func NewStore(zlog *zap.Logger, cfg *config.Config) (*Store, error) {
+	newLogger := logger.New(
+		log.New(os.Stderr, "\r\n", log.LstdFlags), // io writer
+		logger.Config{
+			SlowThreshold:             time.Second, // Slow SQL threshold
+			LogLevel:                  logger.Warn, // Log level
+			IgnoreRecordNotFoundError: true,        // Ignore ErrRecordNotFound error for logger
+			Colorful:                  false,       // Disable color
+		},
+	)
+	db, err := gorm.Open(postgres.Open(cfg.PostgresDSN), &gorm.Config{
+		Logger: newLogger,
+	})
 	if err != nil {
 		return nil, fmt.Errorf("connect_to_database_error: %w", err)
 	}
-	err = db.AutoMigrate(&Category{}, &OriginProduct{}, &SaleProduct{}, &User{})
-	if err != nil {
-		return nil, fmt.Errorf("auto_migrate_error: %w", err)
-	}
-
-	return &Store{log: log, cfg: cfg, db: db}, nil
+	return &Store{log: zlog, cfg: cfg, db: db}, nil
 }
 
+func (s *Store) Migrate() error {
+	err := s.db.AutoMigrate(&Category{}, &OriginProduct{}, &SaleProduct{}, &User{})
+	if err != nil {
+		return fmt.Errorf("auto_migrate_error: %w", err)
+	}
+	return nil
+}
 func (s *Store) Close() error {
 	db, err := s.db.DB()
 	if err != nil {
@@ -135,22 +151,15 @@ func (s *Store) SaveCategories(categories *[]Category) error {
 	return res.Error
 }
 func (s *Store) SaveSaleProducts(products *[]SaleProduct) error {
-	res := s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(products)
-	if res.Error != nil {
-		//s.log.Warn("SaveSaleProducts_error", zap.Error(res.Error))
-
-		for _, product := range *products {
-			res = s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(&product)
-			if res.Error != nil {
-				s.log.Warn("SaveSaleProduct_error", zap.Error(res.Error), zap.Any("product", &product))
-
-			}
-
-		}
-	}
-
+	//res := s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(products)
+	res := s.db.Omit("origin_id").Save(products)
 	return res.Error
 }
+
+//func (s *Store) UpdateSaleProducts(products *[]SaleProduct) error {
+//	res := s.db.Debug().Omit("origin_id").Save(products)
+//	return res.Error
+//}
 
 func (s *Store) SaveOriginProducts(products *[]OriginProduct) error {
 	res := s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(products)
@@ -168,12 +177,21 @@ func (s *Store) UpdateOriginID(product *SaleProduct) error {
 }
 
 func (s *Store) SelectProductWithoutOriginID() (product SaleProduct, err error) {
-	res := s.db.Where("origin_id is null").Find(&product)
+	res := s.db.Where("origin_id is null").Where("sell_status = 'available'").Find(&product)
 	return product, res.Error
 }
 
 func (s *Store) SelectOriginIDList(limit int) (idList []int64, err error) {
 	res := s.db.Model(&SaleProduct{}).Limit(limit).Distinct("sale_products.origin_id").Joins("left join origin_products on origin_products.id = sale_products.origin_id").Where("origin_products.id isnull").Where("sale_products.origin_id > 0").Scan(&idList)
+	return idList, res.Error
+}
+
+func (s *Store) SelectOriginProductsForRefresh(limit int) (idList []int64, err error) {
+	res := s.db.Model(&OriginProduct{}).Limit(limit).Select("id").Order("updated_at").Scan(&idList)
+	return idList, res.Error
+}
+func (s *Store) SelectSaleProductsForRefresh(limit int) (idList []int64, err error) {
+	res := s.db.Model(&SaleProduct{}).Limit(limit).Select("id").Order("updated_at").Scan(&idList)
 	return idList, res.Error
 }
 
@@ -220,6 +238,7 @@ func (s *Store) SelectGoodProducts(limit int, userID int64, minComments int64, m
 		Joins("left join user_sale_products usp on usp.sale_product_id = sale_products.id and usp.user_id = ?", userID).
 		Where("op.comments_amount > ?", minComments).
 		Where("op.comments_mark > ?", minMark).
+		Where("sale_products.sell_status = 'available'").
 		Where("(100-sale_products.price * 100 / op.price) > ?", minDiscount).
 		Where("usp.sale_product_id isnull").
 		Scan(&td)

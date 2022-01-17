@@ -20,9 +20,9 @@ import (
 const maxNumPages = 10
 const categoryPeriod = 10 * time.Minute
 const CollectOriginProductsPeriod = 3 * time.Minute
-const collectPagePeriod = 10 * time.Second
+const collectPagePeriod = 5 * time.Second
+const refreshPeriod = 1 * time.Hour
 const maxProductChunkSize = 1200
-const NoOriginID = 0
 const tmpl = `
 <a href="{{.ImageMain}}"> </a>
 <a href="{{.Href}}">{{.Title}}</a>
@@ -121,6 +121,38 @@ func (c *Collector) CollectOriginProducts() error {
 	)
 	return nil
 }
+func (c *Collector) RefreshOriginProducts() error {
+	start := time.Now()
+	ids, err := c.store.SelectOriginProductsForRefresh(maxProductChunkSize)
+	if err != nil {
+		return err
+	}
+	//c.log.Debug("", zap.Any("chunk", ids), zap.Int("len", len(ids)))
+
+	if len(ids) == 0 {
+		return nil
+	}
+	details, err := c.getProductDetails(ids)
+	if err != nil {
+		return err
+	}
+	//c.log.Debug("CollectOriginProducts_details", zap.Any("len_details", len(details)))
+	var op []store.OriginProduct
+	err = copier.Copy(&op, &details)
+	if err != nil {
+		return err
+	}
+	err = c.store.SaveOriginProducts(&op)
+	if err != nil {
+		return err
+	}
+	c.log.Info("RefreshOriginProducts",
+		zap.Int("count", len(ids)),
+		//zap.Int64s("list", ids),
+		zap.Duration("elapsed", time.Since(start)),
+	)
+	return nil
+}
 func (c *Collector) CollectSaleProducts() error {
 	start := time.Now()
 	categories, err := c.store.GetCategories()
@@ -179,6 +211,37 @@ func (c *Collector) CollectSaleProducts() error {
 	)
 	return nil
 }
+func (c *Collector) RefreshSaleProducts() error {
+	start := time.Now()
+	list, err := c.store.SelectSaleProductsForRefresh(maxProductChunkSize)
+	if err != nil {
+		return err
+	}
+	//c.log.Debug("", zap.Int("len_chunk", len(list)), zap.Any("chunk", list))
+	//return err
+
+	details, err := c.getProductDetails(list)
+	if err != nil {
+		return err
+	}
+	var sp []store.SaleProduct
+	err = copier.Copy(&sp, &details)
+	if err != nil {
+		return err
+	}
+	//s.log.Info("sp", zap.Any("products", sp))
+	err = c.store.SaveSaleProducts(&sp)
+	if err != nil {
+		return err
+	}
+
+	c.log.Info("RefreshSaleProducts",
+		zap.Int("count", len(list)),
+		//zap.Int64s("list", multiList),
+		zap.Duration("elapsed", time.Since(start)),
+	)
+	return nil
+}
 func (c *Collector) CollectOriginID() error {
 	start := time.Now()
 	product, err := c.store.SelectProductWithoutOriginID()
@@ -200,7 +263,10 @@ func (c *Collector) CollectOriginID() error {
 	}
 	findSub := re.FindStringSubmatch(page)
 	if len(findSub) < 2 {
-		c.log.Info("not_found_origin_id_in_page", zap.String("product_url", *product.Href))
+		c.log.Info("not_found_origin_id_in_page", zap.Int64("id", product.ID),
+			zap.Stringp("status", product.Status),
+			zap.Stringp("sell_status", product.SellStatus),
+			zap.Stringp("product_url", product.Href))
 		product.OriginID = api.PtrInt64(0)
 	} else {
 		originID, err := strconv.ParseInt(findSub[1], 10, 64)
@@ -228,7 +294,7 @@ func (c *Collector) Notify() error {
 	}
 
 	for _, user := range users {
-		products, err := c.store.SelectGoodProducts(50, user.ID, 18, user.Rating, user.Discount)
+		products, err := c.store.SelectGoodProducts(50, user.ID, 17, user.Rating, user.Discount)
 		if err != nil {
 			return err
 		}
@@ -262,6 +328,7 @@ func (c *Collector) Run() error {
 	categoryTick := time.Tick(categoryPeriod)
 	originProductsTick := time.Tick(CollectOriginProductsPeriod)
 	collectPageTick := time.Tick(collectPagePeriod)
+	refreshTick := time.Tick(refreshPeriod)
 
 	err := c.CollectCategories()
 	if err != nil {
@@ -275,7 +342,14 @@ func (c *Collector) Run() error {
 	if err != nil {
 		return fmt.Errorf("CollectOriginProducts_error: %w", err)
 	}
-
+	err = c.RefreshOriginProducts()
+	if err != nil {
+		c.log.Warn("RefreshOriginProducts", zap.Error(err))
+	}
+	err = c.RefreshSaleProducts()
+	if err != nil {
+		c.log.Warn("RefreshSaleProducts", zap.Error(err))
+	}
 	for {
 		select {
 		case <-c.ctx.Done():
@@ -309,6 +383,15 @@ func (c *Collector) Run() error {
 			err := c.CollectOriginID()
 			if err != nil {
 				c.log.Warn("CollectOriginID_error", zap.Error(err))
+			}
+		case <-refreshTick:
+			err := c.RefreshOriginProducts()
+			if err != nil {
+				c.log.Warn("RefreshOriginProducts", zap.Error(err))
+			}
+			err = c.RefreshSaleProducts()
+			if err != nil {
+				c.log.Warn("RefreshSaleProducts", zap.Error(err))
 			}
 		}
 	}
