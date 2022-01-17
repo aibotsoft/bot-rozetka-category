@@ -17,6 +17,7 @@ type Config struct {
 	RequestTimeout time.Duration `env:"REQUEST_TIMEOUT" envDefault:"5s"`
 	TelegramToken  string        `env:"TELEGRAM_TOKEN"`
 	TelegramDebug  bool          `env:"TELEGRAM_DEBUG"`
+	Version        string        `env:"VERSION"`
 }
 
 func NewConfig() (*Config, error) {

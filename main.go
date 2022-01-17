@@ -13,11 +13,14 @@ import (
 	"net/http"
 )
 
+const Version = "0.1.7"
+
 func main() {
 	cfg, err := config.NewConfig()
 	if err != nil {
 		panic(err)
 	}
+	cfg.Version = Version
 	log, err := logger.NewLogger(cfg.LogLever, cfg.LogEncoding)
 	if err != nil {
 		panic(err)

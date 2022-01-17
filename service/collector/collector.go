@@ -288,20 +288,21 @@ func (c *Collector) CollectOriginID() error {
 }
 
 func (c *Collector) Notify() error {
+	start := time.Now()
 	users, err := c.store.SelectUsers()
 	if err != nil {
 		return fmt.Errorf("select_users_error: %w", err)
 	}
 
 	for _, user := range users {
-		products, err := c.store.SelectGoodProducts(50, user.ID, 17, user.Rating, user.Discount)
+		products, err := c.store.SelectGoodProducts(50, user.ID, 16, user.Rating, user.Discount)
 		if err != nil {
 			return err
 		}
-		c.log.Debug("Notify", zap.Any("products", len(products)),
-			zap.Any("products", products),
-			zap.Any("user", user),
-		)
+		if len(products) == 0 {
+			continue
+		}
+
 		for _, product := range products {
 			var tpl bytes.Buffer
 			product.PostOldPrice = product.OldPrice > product.OriginPrice
@@ -321,6 +322,12 @@ func (c *Collector) Notify() error {
 		if err != nil {
 			c.log.Warn("update_user_error", zap.Error(err))
 		}
+		c.log.Debug("Notify",
+			zap.Any("products_count", len(products)),
+			//zap.Any("products", products),
+			zap.Any("user_name", user.UserName),
+			zap.Duration("elapsed", time.Since(start)),
+		)
 	}
 	return nil
 }
