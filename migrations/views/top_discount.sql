@@ -1,7 +1,8 @@
-create or replace view top_discount as
+-- create or replace view top_discount as
 select sp.id,
        (100 - sp.price * 100 / op.price)::int discount,
        sp.sell_status,
+       sp.created_at,
        sp.updated_at,
        sp.title,
        c.title                                category_title,
@@ -27,9 +28,9 @@ select sp.id,
 from sale_products sp
          join origin_products op on sp.origin_id = op.id
          join categories c on sp.category_id = c.id
-where op.comments_amount > 17
+where op.comments_amount > 15
   and op.comments_mark > 4
---   and sp.sell_status != 'out_of_stock'
+  and sp.sell_status = 'available'
   and (100-sp.price * 100 / op.price) > 30
 order by 2 desc;
 

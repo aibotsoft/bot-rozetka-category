@@ -18,10 +18,10 @@ import (
 )
 
 const maxNumPages = 10
-const categoryPeriod = 10 * time.Minute
-const CollectOriginProductsPeriod = 3 * time.Minute
+const categoryPeriod = 8 * time.Minute
+const CollectOriginProductsPeriod = 2 * time.Minute
 const collectPagePeriod = 5 * time.Second
-const refreshPeriod = 1 * time.Hour
+const refreshPeriod = 50 * time.Minute
 const maxProductChunkSize = 1200
 const tmpl = `
 <a href="{{.ImageMain}}"> </a>
@@ -295,7 +295,7 @@ func (c *Collector) Notify() error {
 	}
 
 	for _, user := range users {
-		products, err := c.store.SelectGoodProducts(50, user.ID, 16, user.Rating, user.Discount)
+		products, err := c.store.SelectGoodProducts(50, user.ID, 15, user.Rating, user.Discount)
 		if err != nil {
 			return err
 		}
