@@ -13,7 +13,7 @@ import (
 	"net/http"
 )
 
-const Version = "0.1.8"
+const Version = "0.1.10"
 
 func main() {
 	cfg, err := config.NewConfig()

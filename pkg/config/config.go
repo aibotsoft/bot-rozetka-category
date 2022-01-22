@@ -14,7 +14,7 @@ type Config struct {
 	LogEncoding    string        `env:"LOG_ENCODING" envDefault:"json"`
 	RootCategoryID int64         `env:"ROOT_CATEGORY_ID" envDefault:"83850"`
 	Port           string        `env:"PORT" envDefault:"8080"`
-	RequestTimeout time.Duration `env:"REQUEST_TIMEOUT" envDefault:"5s"`
+	RequestTimeout time.Duration `env:"REQUEST_TIMEOUT" envDefault:"7s"`
 	TelegramToken  string        `env:"TELEGRAM_TOKEN"`
 	TelegramDebug  bool          `env:"TELEGRAM_DEBUG"`
 	Version        string        `env:"VERSION"`

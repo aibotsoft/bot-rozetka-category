@@ -162,7 +162,7 @@ func (s *Store) UpdateSaleProducts(products *[]SaleProduct) error {
 			err := s.db.Omit("origin_id").Save(p).Error
 			if err != nil {
 				s.log.Warn("update_sale_product_error", zap.Error(err), zap.Any("product", p))
-				err := s.db.Delete(p).Error
+				err := s.db.Delete(&p).Error
 				if err != nil {
 					s.log.Warn("delete_sale_product_error", zap.Error(err), zap.Any("product", p))
 				}
