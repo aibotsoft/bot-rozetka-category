@@ -97,10 +97,10 @@ func NewStore(zlog *zap.Logger, cfg *config.Config) (*Store, error) {
 	newLogger := logger.New(
 		log.New(os.Stderr, "\r\n", log.LstdFlags), // io writer
 		logger.Config{
-			SlowThreshold:             time.Second, // Slow SQL threshold
-			LogLevel:                  logger.Warn, // Log level
-			IgnoreRecordNotFoundError: true,        // Ignore ErrRecordNotFound error for logger
-			Colorful:                  false,       // Disable color
+			SlowThreshold:             3 * time.Second, // Slow SQL threshold
+			LogLevel:                  logger.Warn,     // Log level
+			IgnoreRecordNotFoundError: true,            // Ignore ErrRecordNotFound error for logger
+			Colorful:                  false,           // Disable color
 		},
 	)
 	db, err := gorm.Open(postgres.Open(cfg.PostgresDSN), &gorm.Config{
@@ -151,15 +151,28 @@ func (s *Store) SaveCategories(categories *[]Category) error {
 	return res.Error
 }
 func (s *Store) SaveSaleProducts(products *[]SaleProduct) error {
-	//res := s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(products)
-	res := s.db.Omit("origin_id").Save(products)
-	return res.Error
+	err := s.db.Omit("origin_id").Save(products).Error
+	return err
 }
 
-//func (s *Store) UpdateSaleProducts(products *[]SaleProduct) error {
-//	res := s.db.Debug().Omit("origin_id").Save(products)
-//	return res.Error
-//}
+func (s *Store) UpdateSaleProducts(products *[]SaleProduct) error {
+	err := s.db.Omit("origin_id").Save(products).Error
+	if err != nil {
+		for _, p := range *products {
+			err := s.db.Omit("origin_id").Save(p).Error
+			if err != nil {
+				s.log.Warn("update_sale_product_error", zap.Error(err), zap.Any("product", p))
+				err := s.db.Delete(p).Error
+				if err != nil {
+					s.log.Warn("delete_sale_product_error", zap.Error(err), zap.Any("product", p))
+				}
+			} else {
+				//s.log.Info("save_sale_product_done", zap.Any("product", p))
+			}
+		}
+	}
+	return nil
+}
 
 func (s *Store) SaveOriginProducts(products *[]OriginProduct) error {
 	res := s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(products)
@@ -191,7 +204,7 @@ func (s *Store) SelectOriginProductsForRefresh(limit int) (idList []int64, err e
 	return idList, res.Error
 }
 func (s *Store) SelectSaleProductsForRefresh(limit int) (idList []int64, err error) {
-	res := s.db.Model(&SaleProduct{}).Limit(limit).Select("id").Order("updated_at").Scan(&idList)
+	res := s.db.Model(&SaleProduct{}).Limit(limit).Select("id").Order("updated_at").Where("updated_at < now() - interval '1 hour'").Scan(&idList)
 	return idList, res.Error
 }
 

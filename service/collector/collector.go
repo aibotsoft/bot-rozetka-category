@@ -217,6 +217,9 @@ func (c *Collector) RefreshSaleProducts() error {
 	if err != nil {
 		return err
 	}
+	if len(list) == 0 {
+		return nil
+	}
 	//c.log.Debug("", zap.Int("len_chunk", len(list)), zap.Any("chunk", list))
 	//return err
 
@@ -230,7 +233,7 @@ func (c *Collector) RefreshSaleProducts() error {
 		return err
 	}
 	//s.log.Info("sp", zap.Any("products", sp))
-	err = c.store.SaveSaleProducts(&sp)
+	err = c.store.UpdateSaleProducts(&sp)
 	if err != nil {
 		return err
 	}
@@ -322,7 +325,7 @@ func (c *Collector) Notify() error {
 		if err != nil {
 			c.log.Warn("update_user_error", zap.Error(err))
 		}
-		c.log.Debug("Notify",
+		c.log.Info("Notify",
 			zap.Any("products_count", len(products)),
 			//zap.Any("products", products),
 			zap.Any("user_name", user.UserName),
